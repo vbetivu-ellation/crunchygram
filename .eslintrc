@@ -1,0 +1,6 @@
+{
+  "extends": ["plugin:import/recommended", "react-app"],
+  "rules": {
+    "react/prop-types": 2
+  }
+}
