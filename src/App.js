@@ -7,7 +7,7 @@ function App() {
     <div className={styles.app}>
       <header className={styles.header}>
         <img src={logo} className={styles.logo} alt="logo" />
-        <Text size="xl" weight="bold">
+        <Text as="p" size="xl" weight="bold">
           Edit <code>src/App.js</code> and save to reload.
         </Text>
         <a
