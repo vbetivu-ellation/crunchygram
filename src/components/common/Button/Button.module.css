@@ -1,0 +1,35 @@
+.button {
+  --color: rgb(244, 117, 33);
+  display: block;
+  width: 100%;
+  padding: 16px 32px;
+  font-size: 14px;
+  line-height: 1;
+  transition: color 0.2s ease, background-color 0.2s ease, outline 0.2s ease;
+  border-radius: 2px;
+}
+
+.button:hover {
+  --color: rgb(255, 148, 77);
+}
+
+.button:active {
+  --color: rgb(229, 106, 23);
+}
+
+.filled {
+  color: rgb(0, 0, 0);
+  background-color: var(--color);
+}
+
+.outlined {
+  color: var(--color);
+  outline: var(--color) solid 2px;
+  outline-offset: -2px;
+}
+
+@media (min-width: 578px) {
+  .button {
+    width: auto;
+  }
+}
