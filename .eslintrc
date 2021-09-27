@@ -1,6 +1,7 @@
 {
   "extends": ["plugin:import/recommended", "react-app"],
   "rules": {
+    "react/no-unused-prop-types": "error",
     "react/prop-types": "error",
     "no-unused-expressions": "error",
     "no-unused-vars": [
