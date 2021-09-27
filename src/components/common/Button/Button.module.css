@@ -1,5 +1,5 @@
 .button {
-  --color: rgb(244, 117, 33);
+  --color: var(--color-orange-base);
   display: block;
   width: 100%;
   padding: 16px 32px;
@@ -10,15 +10,15 @@
 }
 
 .button:hover {
-  --color: rgb(255, 148, 77);
+  --color: var(--color-orange-light);
 }
 
 .button:active {
-  --color: rgb(229, 106, 23);
+  --color: var(--color-orange-dark);
 }
 
 .filled {
-  color: rgb(0, 0, 0);
+  color: var(--color-black);
   background-color: var(--color);
 }
 

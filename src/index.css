@@ -1,6 +1,14 @@
 /* min tablet-screen: 568px; */
 /* min desktop-screen: 800px; */
 
+html {
+  --color-orange-base: rgb(244, 117, 33);
+  --color-orange-light: rgb(255, 148, 77);
+  --color-orange-dark: rgb(229, 106, 23);
+  --color-black: rgb(0, 0, 0);
+  --color-scarpa-flow: rgb(89, 89, 91);
+}
+
 html,
 body,
 div,
