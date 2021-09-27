@@ -1,0 +1,25 @@
+.label {
+  display: block;
+  text-align: left;
+}
+
+.label-text {
+  color: var(--color-orange-base);
+}
+
+.input {
+  display: block;
+  background: none;
+  border: none;
+  outline: none;
+
+  font-size: 18px;
+  line-height: 26px;
+  color: currentColor;
+  border-bottom: 2px solid var(--color-scarpa-flow);
+  transition: border-color 0.2s ease;
+}
+
+.input:focus {
+  border-color: var(--color-orange-base);
+}
