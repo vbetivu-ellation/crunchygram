@@ -1,3 +1,4 @@
 import Text from "./Text";
+import Heading from "./Heading";
 
-export { Text };
+export { Text, Heading };
