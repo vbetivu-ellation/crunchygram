@@ -1,17 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 
 import styles from "./Image.module.css";
 
 const Image = ({ alt, src, className }) => {
-
   return (
-      <img
-        className={classNames(styles.image, className)}
-        src={src}
-        alt={alt}
-      />
+    <img className={classNames(styles.image, className)} src={src} alt={alt} />
   );
 };
 
@@ -22,4 +17,3 @@ Image.propTypes = {
 };
 
 export default Image;
-

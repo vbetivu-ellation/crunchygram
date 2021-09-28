@@ -1,5 +1,6 @@
 .logo {
-    width: 36px;
-    height: 36px;
-    fill: var(--color-orange-base);
+  display: block;
+  width: 36px;
+  height: 36px;
+  fill: var(--color-orange-base);
 }
