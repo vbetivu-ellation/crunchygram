@@ -6,7 +6,8 @@ import Textarea from "./Textarea";
 import Avatar from "./Avatar";
 import Logo from "./Logo";
 import Image from "./Image";
+import ProfileHeader from "./ProfileHeader"
 
 export * from "./Svg";
 
-export { Text, Heading, Button, Input, Textarea, Avatar, Logo, Image };
+export { Text, Heading, Button, Input, Textarea, Avatar, Logo, Image, ProfileHeader };

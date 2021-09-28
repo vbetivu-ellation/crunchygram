@@ -1,0 +1,74 @@
+.profileHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 20px;
+  max-width: 980px;
+}
+
+.avatar {
+  flex-basis: 0;
+  flex-grow: 1;
+  margin-right: 30px;
+  height: 100%;
+}
+
+.avatarImage {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80px;
+  height: 80px;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-basis: 30px;
+  flex-grow: 2;
+}
+
+.nickName {
+  margin-bottom: 16px;
+}
+
+.activities {
+  display: flex;
+  flex-direction: column;
+}
+
+.activity {
+  display: flex;
+  align-items: center;
+}
+
+.likeActivity {
+  margin-bottom: 8px;
+}
+
+.likeIcon {
+  color: var(--color-orange-base);
+  margin-right: 4px;
+}
+
+.commentIcon {
+  color: var(--color-scooter-dark);
+  margin-right: 4px;
+}
+
+@media (min-width: 568px) {
+  .activities {
+    flex-direction: row;
+  }
+  .likeActivity {
+    margin: 0 16px 0 0;
+  }
+  .nickName {
+    margin-bottom: 24px;
+  }
+  .avatarImage {
+    height: 160px;
+    width: 160px;
+  }
+}
