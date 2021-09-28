@@ -1,0 +1,36 @@
+.button {
+  padding: 8px;
+  color: var(--color-black);
+  transition: color 0.2s ease;
+}
+
+.button:hover {
+  color: var(--color-orange-base);
+}
+
+.liked {
+  color: var(--color-orange-base);
+  animation: Beat 0.4s forwards;
+}
+
+@keyframes Beat {
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(1.5);
+  }
+
+  50% {
+    transform: scale(1.25);
+  }
+
+  75% {
+    transform: scale(1.5);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
