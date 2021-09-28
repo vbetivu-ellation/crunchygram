@@ -15,7 +15,7 @@ const Login = ({ isAuthenticated }) => {
   return isAuthenticated ? null : (
     <div className={styles.overlay}>
       <div className={styles.wrapper}>
-        <div className={styles["input-wrapper"]}>
+        <div className={styles.inputWrapper}>
           <Input
             onChange={handleChange}
             value={username}

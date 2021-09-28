@@ -1,0 +1,25 @@
+.article {
+  border: 1px solid var(--color-silver);
+}
+
+.topRow {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.avatarWrapper {
+  width: 42px;
+  height: 42px;
+  margin-right: 8px;
+}
+
+.image {
+  height: 460px;
+}
+
+.bottomRow {
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+}
