@@ -1,6 +1,12 @@
 /* min tablet-screen: 568px; */
 /* min desktop-screen: 800px; */
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
   --color-orange-base: rgb(244, 117, 33);
   --color-orange-light: rgb(255, 148, 77);
