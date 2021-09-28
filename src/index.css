@@ -1,6 +1,12 @@
 /* min tablet-screen: 568px; */
 /* min desktop-screen: 800px; */
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html,
 body,
 div,
