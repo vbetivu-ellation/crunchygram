@@ -14,7 +14,7 @@ const Input = ({
   placeholder,
 }) => (
   <label className={styles.label}>
-    <Text as="small" size="s" className={styles["label-text"]}>
+    <Text as="small" size="s" className={styles.labelText}>
       {label}
     </Text>
     <input
