@@ -5,6 +5,10 @@
   background-color: var(--color-alabaster);
 }
 
+.homeLink {
+  display: block;
+}
+
 .wrapper {
   height: 100%;
   max-width: var(--max-content-width);
@@ -16,6 +20,7 @@
 }
 
 .avatar {
+  display: block;
   width: 28px;
   height: 28px;
 }
