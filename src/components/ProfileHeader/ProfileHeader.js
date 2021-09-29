@@ -2,10 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-import Avatar from "../Avatar";
-import Text from "../Text";
-import Heading from "../Heading";
-import { LikeFilledSvg, CommentSvg } from "../Svg/index";
+import Avatar from "../common/Avatar";
+import Text from "../common/Text";
+import Heading from "../common/Heading";
+import { LikeFilledSvg, CommentSvg } from "../common/Svg";
 
 import styles from "./ProfileHeader.module.css";
 

@@ -5,4 +5,7 @@
   align-items: center;
   color: var(--color-scarpa-flow);
   background-color: var(--color-alabaster);
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 }
