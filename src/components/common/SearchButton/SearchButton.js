@@ -1,0 +1,26 @@
+import React from "react";
+import PropTypes from "prop-types";
+
+import styles from "./SearchButton.module.css";
+import { SearchSvg } from "../Svg";
+import { Button } from "..";
+
+const SearchButton = ({ isDisabled }) => {
+  return (
+    <Button
+      className={styles.button}
+      type="filled"
+      isDisabled={isDisabled}
+      onClick={() => {}}
+    >
+      <SearchSvg className={styles.searchIcon} />
+      Search
+    </Button>
+  );
+};
+
+SearchButton.propTypes = {
+  isDisabled: PropTypes.bool,
+};
+
+export default SearchButton;
