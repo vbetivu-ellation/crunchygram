@@ -18,6 +18,8 @@ html {
   --color-scooter-dark: rgb(37, 168, 166);
   --color-silver: rgb(218, 218, 218);
   /* */
+  --color-black-half-opacity: rgb(0, 0, 0, 0.5);
+  /* */
   --max-content-width: 980px;
 
   font-family: "Open Sans", sans-serif;
