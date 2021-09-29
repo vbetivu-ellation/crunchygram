@@ -3,10 +3,6 @@
   align-items: center;
 }
 
-.button:hover {
-  color: var(--color-orange-base);
-}
-
 .searchIcon {
-  display: inline;
+  margin-right: 4px;
 }

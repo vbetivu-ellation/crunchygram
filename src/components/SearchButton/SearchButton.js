@@ -2,8 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import styles from "./SearchButton.module.css";
-import { SearchSvg } from "../Svg";
-import { Button } from "..";
+import { Button, SearchSvg } from "../common";
 
 const SearchButton = ({ isDisabled }) => {
   return (
