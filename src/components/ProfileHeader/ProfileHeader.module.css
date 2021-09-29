@@ -1,40 +1,39 @@
-.profileHeader {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 32px 20px;
+.header {
+  display: grid;
+  padding: 36px 0;
+  border-bottom: 1px solid var(--color-scarpa-flow);
+}
+
+.avatarWrapper {
+  justify-self: center;
+  width: 160px;
+  margin-bottom: 12px;
+}
+
+.avatarSpacer {
+  padding-top: 100%;
+  position: relative;
 }
 
 .avatar {
-  flex-basis: 0;
-  flex-grow: 1;
-  margin-right: 30px;
-  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-.avatarImage {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 80px;
-  height: 80px;
-}
-
-.profileInfo {
+.info {
+  justify-self: center;
   display: flex;
+  align-items: center;
   flex-direction: column;
-  align-items: flex-start;
-  flex-basis: 30px;
-  flex-grow: 2;
 }
 
 .nickName {
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .activities {
   display: flex;
-  flex-direction: column;
 }
 
 .activity {
@@ -43,7 +42,7 @@
 }
 
 .likeActivity {
-  margin-bottom: 8px;
+  margin-right: 16px;
 }
 
 .likeIcon {
@@ -56,18 +55,45 @@
   margin-right: 4px;
 }
 
-@media (min-width: 568px) {
-  .activities {
-    flex-direction: row;
+@media (min-width: 578px) {
+  .header {
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    column-gap: 24px;
   }
-  .likeActivity {
-    margin: 0 16px 0 0;
+
+  .avatarWrapper {
+    margin: 0;
+    width: 100%;
+    max-width: 240px;
   }
+
+  .info {
+    justify-self: start;
+    align-items: flex-start;
+  }
+
   .nickName {
     margin-bottom: 24px;
   }
-  .avatarImage {
-    height: 160px;
-    width: 160px;
+
+  .activities {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 800px) {
+  .header {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "avatar info info";
+    column-gap: 32px;
+  }
+
+  .avatarWrapper {
+    grid-area: avatar;
+  }
+
+  .info {
+    grid-area: info;
   }
 }

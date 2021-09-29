@@ -5,13 +5,12 @@ import ProfilePost from "../ProfilePost";
 
 import styles from "./ProfilePage.module.css";
 
-const likedPosts = [
-  {
-    imageSrc:
-      "https://beta.crunchyroll.com/imgsrv/display/thumbnail/1200x675/catalog/crunchyroll/4fbfedc219a7ef7cf2974e2104ad880d.jpg",
-    count: 25,
-  },
-];
+const likedPost = {
+  imageSrc:
+    "https://beta.crunchyroll.com/imgsrv/display/thumbnail/1200x675/catalog/crunchyroll/4fbfedc219a7ef7cf2974e2104ad880d.jpg",
+  count: 25,
+};
+
 const user = {
   id: 3,
   avatar:
@@ -23,30 +22,27 @@ const user = {
 
 const ProfilePage = () => {
   return (
-    <div className={styles.profilePage}>
-      <div className={styles.wrapper}>
-        <ProfileHeader
-          id={user.id}
-          avatar={user.avatar}
-          username={user.username}
-          likesCount={user.likesCount}
-          commentCount={user.commentCount}
-        />
-        <div className={styles.separator} />
-        <div className={styles.postsGrid}>
-          {likedPosts.map((post) => (
-            <div className={styles.postWrapper}>
-              <ProfilePost
-                className={styles.post}
-                src={post.imageSrc}
-                commentsCount={post.likesCount}
-                likesCount={post.likesCount}
-              />
-            </div>
-          ))}
-        </div>
+    <section className={styles.section}>
+      <ProfileHeader
+        id={user.id}
+        avatar={user.avatar}
+        username={user.username}
+        likesCount={user.likesCount}
+        commentCount={user.commentCount}
+      />
+      <div className={styles.grid}>
+        {new Array(23).fill().map(() => (
+          <div className={styles.postWrapper}>
+            <ProfilePost
+              className={styles.post}
+              src={likedPost.imageSrc}
+              commentsCount={likedPost.count}
+              likesCount={likedPost.count}
+            />
+          </div>
+        ))}
       </div>
-    </div>
+    </section>
   );
 };
 

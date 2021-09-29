@@ -1,19 +1,15 @@
-.profilePage {
+.section {
   max-width: var(--max-content-width);
   margin: 0 auto;
-  padding: 20px;
-}
-
-.separator {
-  height: 1px;
-  background-color: var(--color-scarpa-flow);
-  margin-bottom: 44px;
-}
-
-.postsGrid {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-gap: 18px;
+  gap: 36px;
+  margin-bottom: 48px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
 }
 
 .postWrapper {
@@ -28,24 +24,19 @@
   left: 0;
 }
 
-@media (min-width: 568px) {
-  .profilePage {
-    padding: 40px;
+@media (min-width: 578px) {
+  .section {
+    margin-bottom: 64px;
   }
-  .postsGrid {
-    display: grid;
+  .grid {
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 24px;
+    gap: 24px;
   }
 }
 
 @media (min-width: 800px) {
-  .profilePage {
-    padding: 40px;
-  }
-  .postsGrid {
-    display: grid;
+  .grid {
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 32px;
+    gap: 32px;
   }
 }

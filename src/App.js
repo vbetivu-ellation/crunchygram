@@ -2,9 +2,10 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+import NotFound from "./components/NotFound";
+import ProfilePage from "./components/ProfilePage";
 
 import styles from "./App.module.css";
-import NotFound from "./components/NotFound";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       <div className={styles.content}>
         <Switch>
           <Route path="/profile/:id" exact>
-            Profile
+            <ProfilePage />
           </Route>
           <Route path="/post/:id" exact>
             Post
