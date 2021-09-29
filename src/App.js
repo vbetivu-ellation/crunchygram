@@ -4,6 +4,7 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import NotFound from "./components/NotFound";
 import ProfilePage from "./components/ProfilePage";
+import PostPage from "./components/PostPage";
 
 import styles from "./App.module.css";
 
@@ -17,7 +18,7 @@ function App() {
             <ProfilePage />
           </Route>
           <Route path="/post/:id" exact>
-            Post
+            <PostPage />
           </Route>
           <Route path="/" exact>
             Home
