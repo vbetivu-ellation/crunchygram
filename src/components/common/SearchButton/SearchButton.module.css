@@ -1,0 +1,12 @@
+.button {
+  display: flex;
+  align-items: center;
+}
+
+.button:hover {
+  color: var(--color-orange-base);
+}
+
+.searchIcon {
+  display: inline;
+}
