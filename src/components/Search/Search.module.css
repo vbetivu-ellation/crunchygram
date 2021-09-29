@@ -1,0 +1,26 @@
+.wrapper {
+  padding: 40px 20px 30px;
+  display: flex;
+  flex-direction: column;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.inputWrapper {
+  margin-bottom: 12px;
+  flex: 1 1 auto;
+}
+
+@media (min-width: 578px) {
+  .wrapper {
+    padding: 0;
+    max-width: 394px;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .inputWrapper {
+    margin: 0 24px 0 0;
+  }
+}
