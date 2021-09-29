@@ -15,6 +15,7 @@ html {
   --color-scarpa-flow: rgb(89, 89, 91);
   --color-alabaster: rgb(248, 248, 248);
   --color-white: rgb(255, 255, 255);
+  --color-scooter: rgb(42, 189, 187);
   --color-scooter-dark: rgb(37, 168, 166);
   --color-silver: rgb(218, 218, 218);
   /* */
@@ -250,6 +251,15 @@ button {
 html,
 body {
   height: 100%;
+}
+
+a,
+a:visited {
+  color: var(--color-scooter-dark);
+}
+
+a:hover {
+  color: var(--color-black);
 }
 
 #root {

@@ -4,6 +4,7 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 
 import styles from "./App.module.css";
+import NotFound from "./components/NotFound";
 
 function App() {
   return (
@@ -20,7 +21,9 @@ function App() {
           <Route path="/" exact>
             Home
           </Route>
-          <Route path="*">Not found</Route>
+          <Route path="*">
+            <NotFound />
+          </Route>
         </Switch>
       </div>
       <Footer />
