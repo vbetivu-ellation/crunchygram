@@ -2,22 +2,21 @@ import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-import Avatar from "../Avatar";
-import Text from "../Text";
-import Heading from "../Heading";
-import { LikeFilledSvg, CommentSvg } from "../Svg/index";
+import { Avatar, Text, Heading, LikeFilledSvg, CommentSvg } from "../common";
 
 import styles from "./ProfileHeader.module.css";
 
 const ProfileHeader = ({ avatar, username, likesCount, commentCount, id }) => {
   return (
-    <div className={styles.profileHeader}>
-      <div className={styles.avatar}>
-        <Avatar src={avatar} className={styles.avatarImage} alt={id} />
+    <header className={styles.header}>
+      <div className={styles.avatarWrapper}>
+        <div className={styles.avatarSpacer}>
+          <Avatar src={avatar} className={styles.avatar} alt={id} />
+        </div>
       </div>
-      <div className={styles.profileInfo}>
+      <div className={styles.info}>
         <div className={styles.nickName}>
-          <Heading as="h4" size="l" weight="heading">
+          <Heading as="h4" size="l">
             {username}
           </Heading>
         </div>
@@ -42,7 +41,7 @@ const ProfileHeader = ({ avatar, username, likesCount, commentCount, id }) => {
           </div>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 

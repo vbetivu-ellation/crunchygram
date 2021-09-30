@@ -6,7 +6,11 @@ import styles from "./Button.module.css";
 
 const Button = ({ children, className, type, isDisabled, onClick }) => (
   <button
-    className={classNames(styles.button, styles[type], className)}
+    className={classNames(
+      styles.button,
+      styles[isDisabled ? "outlined" : type],
+      className
+    )}
     disabled={isDisabled}
     onClick={onClick}
   >

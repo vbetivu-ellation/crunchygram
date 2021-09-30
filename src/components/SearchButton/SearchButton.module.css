@@ -1,0 +1,8 @@
+.button {
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  margin-right: 4px;
+}
