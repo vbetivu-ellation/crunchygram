@@ -1,0 +1,9 @@
+.button {
+  padding: 8px;
+  color: var(--color-black);
+  transition: color 0.2s ease;
+}
+
+.button:hover {
+  color: var(--color-scooter-dark);
+}
