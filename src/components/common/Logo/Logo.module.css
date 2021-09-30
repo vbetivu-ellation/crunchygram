@@ -1,5 +1,19 @@
-.logo {
+.condensed {
   display: block;
   height: 36px;
-  fill: var(--color-orange-base);
+}
+
+.extended {
+  height: 36px;
+  display: none;
+}
+
+@media (min-width: 578px) {
+  .condensed {
+    display: none;
+  }
+
+  .extended {
+    display: block;
+  }
 }
