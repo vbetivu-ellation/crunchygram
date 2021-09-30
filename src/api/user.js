@@ -23,8 +23,24 @@ const login = ({
 const logout = () => axiosInstance.get('/user/logout').then(() => null);
 
 /**
+ * @returns {Promise<User>}
+ */
+const getMe = () => axiosInstance.get('/user/me').then(({ data }) => data);
+
+/**
+ * @returns {Promise<User>}
+ */
+const getUserByUsername = ({
+  username,
+}) => axiosInstance.get(`/user/${username}`).then(({ data }) => data);
+
+/**
  * @returns {Promise<array<User>>}
  */
-const getUsers = () => axiosInstance.get('/user').then(({ data }) => data);
+const getUsers = ({
+  search = '',
+}) => axiosInstance.get('/user', {
+  params: { search },
+}).then(({ data }) => data);
 
-export { login, logout, getUsers };
+export { login, logout, getUsers, getMe, getUserByUsername };

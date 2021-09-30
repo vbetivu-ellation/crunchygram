@@ -7,7 +7,9 @@ import { axiosInstance } from '.';
  * @property {string} name
  * @property {string} image
  * @property {string} avatar
- * @property {string} likesCount
+ * @property {number} likesCount
+ * @property {number} commentsCount
+ * @property {array<Comment>} comments
  */
 
 /**
@@ -31,4 +33,15 @@ const getMyLikedPosts = ({
   params: { limit, start },
 }).then(({ data }) => data);
 
-export { getPosts, getMyLikedPosts };
+/**
+ * @returns {Promise<array<Post>>}
+ */
+const getPostsLikedByUsername = ({
+  username,
+  start = 0,
+  limit = 10,
+}) => axiosInstance.get(`/post/liked/${username}`, {
+  params: { limit, start },
+}).then(({ data }) => data);
+
+export { getPosts, getMyLikedPosts, getPostsLikedByUsername };
