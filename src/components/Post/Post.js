@@ -16,8 +16,8 @@ const Post = ({ imageSrc, seriesSrc, seriesTitle, likesCount }) => (
         {seriesTitle}
       </Text>
     </div>
-    <div className={styles.image}>
-      <Image src={imageSrc} alt="" />
+    <div className={styles.imageWrapper}>
+      <Image src={imageSrc} alt="" className={styles.image} />
     </div>
     <div className={styles.bottomRow}>
       <LikeButton onClick={() => {}} />
