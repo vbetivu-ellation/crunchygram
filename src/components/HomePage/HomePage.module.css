@@ -1,5 +1,5 @@
 .homePage {
-  padding-top: 60px;
+  padding-top: 32px;
   display: grid;
   grid-template-areas: "search" "users" "posts";
   grid-template-columns: minmax(0, 100%);
