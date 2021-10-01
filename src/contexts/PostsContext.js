@@ -17,19 +17,29 @@ const PostsProvider = ({children}) => {
   const [search, setSearch] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([]);
+  const [reachedTheEnd, setReachedTheEnd] = useState(false);
+
   const appendData = useCallback((newData) => {
     setData([...data, ...newData]);
   }, [setData, data]);
 
   const fetchPosts = useCallback(async ({start = 0} = {}) => {
+    if (reachedTheEnd) {
+      return [];
+    }
+
     setIsLoading(true);
 
-    const data = await API.getPosts({start, search});
+    const limit = 10;
+    const data = await API.getPosts({start, search, limit});
 
     setIsLoading(false);
+    if (data.length < limit) {
+      setReachedTheEnd(true);
+    }
 
     return data;
-  }, [setIsLoading, search]);
+  }, [setIsLoading, search, reachedTheEnd, setReachedTheEnd]);
 
   return (
     <PostsContext.Provider value={{

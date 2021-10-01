@@ -6,14 +6,10 @@ import styles from "./Search.module.css";
 import PostsContext from "../../contexts/PostsContext";
 
 const Search = () => {
-  const { fetchPosts, setData, search, setSearch } = useContext(PostsContext);
+  const { search, setSearch } = useContext(PostsContext);
   const handleChange = useCallback(
     ({ target: { value } }) => setSearch(value),
     [setSearch]
-  );
-  const onSearchClick = useCallback(
-    () => fetchPosts().then(setData),
-    [fetchPosts, setData]
   );
 
   return (
@@ -26,7 +22,7 @@ const Search = () => {
           placeholder="Search for a title..."
         />
       </div>
-      <SearchButton isDisabled={search.length < 4} onClick={onSearchClick} />
+      <SearchButton isDisabled={search.length < 4} />
     </div>
   );
 };

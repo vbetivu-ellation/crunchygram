@@ -5,11 +5,12 @@ import PropTypes from "prop-types";
 import UserCard from "../UserCard";
 import { Heading } from "../common";
 import UsersListContext from "../../contexts/UsersListContext";
+import LoadingSpinner from "../LoadingSpinner";
 
 import styles from "./Users.module.css";
 
 const Users = ({ className }) => {
-  const { fetchUsers, users } = useContext(UsersListContext);
+  const { fetchUsers, users, areUsersLoading } = useContext(UsersListContext);
 
   useEffect(() => {
     fetchUsers();
@@ -22,11 +23,19 @@ const Users = ({ className }) => {
         Active users
       </Heading>
       <ul className={classNames(styles.list, {})}>
-        {users.map((user, index) => (
-          <li key={index} className={styles.item}>
-            <UserCard user={user} />
+        {areUsersLoading ? (
+          <li className={styles.item}>
+            <center>
+              <LoadingSpinner />
+            </center>
           </li>
-        ))}
+        ) : (
+          users.map((user, index) => (
+            <li key={index} className={styles.item}>
+              <UserCard user={user} />
+            </li>
+          ))
+        )}
       </ul>
     </div>
   );
