@@ -39,17 +39,12 @@ const PostPage = () => {
         </div>
         <div className={styles.bottomPanel}>
           <div className={styles.actions}>
-            <div className={styles.info}>
-              <LikeButton onClick={() => {}} />
-              <Text as="p" size="s" weight="semibold">
-                483
-              </Text>
-            </div>
+            <LikeButton onClick={() => {}} count={483} />
             <div className={styles.info}>
               <div className={styles.commentsIcon}>
                 <CommentSvg />
               </div>
-              <Text as="p" size="s" weight="semibold">
+              <Text as="p" size="m">
                 483
               </Text>
             </div>

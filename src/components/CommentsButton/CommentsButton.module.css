@@ -1,9 +1,16 @@
 .button {
   padding: 8px;
-  color: var(--color-black);
+  --icon-color: var(--color-black);
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  color: var(--icon-color);
   transition: color 0.2s ease;
+  margin-right: 4px;
 }
 
 .button:hover {
-  color: var(--color-scooter-dark);
+  --icon-color: var(--color-scooter-dark);
 }
