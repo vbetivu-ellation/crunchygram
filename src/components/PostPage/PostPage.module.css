@@ -57,8 +57,6 @@
 
 .bottomPanel {
   grid-area: bottomPanel;
-  display: flex;
-  flex-direction: column;
 }
 
 .actions {
@@ -79,21 +77,6 @@
 
 .commentsIcon {
   padding: 8px;
-}
-
-.commentsList {
-  flex: 1 1 auto;
-  display: grid;
-  gap: 12px;
-  overflow: auto;
-  padding: 2px 16px;
-  max-height: 356px;
-  margin-bottom: 22px;
-}
-
-.commentTextarea {
-  flex: 0 0 auto;
-  padding: 0 16px 16px;
 }
 
 @media (min-width: 800px) {

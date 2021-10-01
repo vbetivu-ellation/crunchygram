@@ -1,19 +1,13 @@
-import React, { useState, useCallback } from "react";
+import React from "react";
+import CommentsSection from "../CommentsSection";
 
-import { Avatar, CommentSvg, Image, Text, Textarea } from "../common";
+import { Avatar, CommentSvg, Image, Text } from "../common";
 
-import Comment from "../Comment";
 import LikeButton from "../LikeButton";
 
 import styles from "./PostPage.module.css";
 
 const PostPage = () => {
-  const [newCommentValue, setNewCommentValue] = useState("");
-  const handleCommentValueChange = useCallback(
-    ({ target: { value } }) => setNewCommentValue(value),
-    []
-  );
-
   return (
     <div className={styles.post}>
       <article className={styles.wrapper}>
@@ -60,21 +54,7 @@ const PostPage = () => {
               </Text>
             </div>
           </div>
-
-          <ul className={styles.commentsList}>
-            {new Array(24).fill().map((_, index) => (
-              <li key={index}>
-                <Comment />
-              </li>
-            ))}
-          </ul>
-          <div className={styles.commentTextarea}>
-            <Textarea
-              value={newCommentValue}
-              onChange={handleCommentValueChange}
-              placeholder="Comment here..."
-            />
-          </div>
+          <CommentsSection />
         </div>
       </article>
     </div>
