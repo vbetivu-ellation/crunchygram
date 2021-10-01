@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
@@ -7,7 +7,8 @@ import Comment from "../Comment";
 
 import styles from "./CommentsSection.module.css";
 
-const CommentsSection = ({ className }) => {
+const CommentsSection = ({className, comments}) => {
+  console.log('comments', comments);
   const [newCommentValue, setNewCommentValue] = useState("");
   const handleCommentValueChange = useCallback(
     ({ target: { value } }) => setNewCommentValue(value),
@@ -17,9 +18,13 @@ const CommentsSection = ({ className }) => {
   return (
     <div className={classNames(styles.wrapper, className)}>
       <ul className={styles.list}>
-        {new Array(24).fill().map((_, index) => (
+        {comments.map(({username, avatar, text}, index) => (
           <li key={index}>
-            <Comment />
+            <Comment
+              comment={text}
+              avatar={avatar}
+              username={username}
+            />
           </li>
         ))}
       </ul>
@@ -36,6 +41,7 @@ const CommentsSection = ({ className }) => {
 
 CommentsSection.propTypes = {
   className: PropTypes.string,
+  comments: PropTypes.array.isRequired,
 };
 
 export default CommentsSection;
