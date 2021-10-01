@@ -1,0 +1,38 @@
+.wrapper {
+  background-color: var(--color-white);
+  padding: 20px 16px;
+  border-radius: 4px;
+  border: 1px solid var(--color-silver);
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.list {
+  position: relative;
+  display: grid;
+  grid-auto-columns: min-content;
+  grid-auto-flow: column;
+  gap: 12px;
+  overflow: auto;
+  padding-bottom: 20px;
+}
+
+.item {
+  display: block;
+}
+
+@media (min-width: 800px) {
+  .title {
+    margin-bottom: 24px;
+  }
+
+  .list {
+    grid-auto-flow: row;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    max-height: 738px;
+    padding-bottom: unset;
+  }
+}

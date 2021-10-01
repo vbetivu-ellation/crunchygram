@@ -1,4 +1,14 @@
+.wrapper {
+  width: 48px;
+  height: 48px;
+  position: relative;
+  overflow: hidden;
+}
+
 .spinner {
+  position: absolute;
+  top: 0;
+  left: 0;
   color: var(--color-orange-base);
   animation: Spin 0.5s infinite linear;
 }

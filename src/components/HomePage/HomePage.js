@@ -1,12 +1,13 @@
 import React, { useCallback, useContext, useEffect } from "react";
 
-import styles from "./HomePage.module.css";
-import Search from "../Search/Search";
+import Search from "../Search";
 import Post from "../Post";
-import SideBar from "../SideBar";
+import Users from "../Users";
 import PostsContext from "../../contexts/PostsContext";
 import LoadingSpinner from "../LoadingSpinner";
 import useInfiniteScroll from "../hooks/useInfiniteScroll";
+
+import styles from "./HomePage.module.css";
 
 const HomePage = () => {
   const {data, isLoading, fetchPosts, appendData} = useContext(PostsContext);
@@ -29,24 +30,20 @@ const HomePage = () => {
       <div className={styles.search}>
         <Search />
       </div>
-      <div className={styles.sideBarWrapper}>
-        <SideBar className={styles.sideBar} />
+      <div className={styles.users}>
+        <Users />
       </div>
-      <div className={styles.postsContainer}>
-        {data.map(({id, avatar, image, name, likesCount, commentsCount, comments}) => (
-          <div className={styles.postWrapper} key={id}>
-            <Post
-              className={styles.post}
-              imageSrc={image}
-              seriesTitle={name}
-              seriesSrc={avatar}
-              commentsCount={commentsCount}
-              likesCount={likesCount}
-              comments={comments}
-            />
-          </div>
+      <div className={styles.posts}>
+        {data.map(({id, avatar, image, name, likesCount, commentsCount}) => (
+          <Post
+            imageSrc={image}
+            seriesTitle={name}
+            seriesSrc={avatar}
+            commentsCount={commentsCount}
+            likesCount={likesCount}
+            key={id}
+          />
         ))}
-
         {isLoading && (
           <center>
             <LoadingSpinner />

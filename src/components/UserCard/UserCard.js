@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import { Avatar, Text } from "../common";
@@ -7,12 +8,12 @@ import styles from "./UserCard.module.css";
 
 const UserCard = ({ user }) => {
   return (
-    <div className={styles.userCard}>
-      <Avatar src={user.avatar} className={styles.avatar} />
-      <Text as="p" size="l" weight="semibold">
+    <Link to={`/profile/${user.id}`} className={styles.wrapper}>
+      <Avatar src={user.avatar} className={styles.avatar} alt="User avatar." />
+      <Text as="p" size="m" weight="semibold" className={styles.username}>
         {user.username}
       </Text>
-    </div>
+    </Link>
   );
 };
 
@@ -20,6 +21,7 @@ UserCard.propTypes = {
   user: PropTypes.shape({
     avatar: PropTypes.string,
     username: PropTypes.string,
+    id: PropTypes.string,
   }),
 };
 

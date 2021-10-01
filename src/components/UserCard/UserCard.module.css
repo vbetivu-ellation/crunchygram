@@ -1,18 +1,33 @@
-.userCard {
+.wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.avatar {
-  height: 56px;
-  width: 56px;
-  margin-right: 16px;
+  width: 72px;
+  text-decoration: none;
 }
 
-@media (min-width: 578px) {
-  .userCard {
-    display: flex;
-    align-items: center;
-    margin-bottom: 16px;
+.avatar {
+  flex: 0 0 auto;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 4px;
+}
+
+.username {
+  flex: 1 1 auto;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+@media (min-width: 800px) {
+  .wrapper {
+    flex-direction: row;
+    width: unset;
+  }
+
+  .avatar {
+    margin: 0 8px 0 0;
   }
 }
