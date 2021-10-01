@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./HomePage.module.css";
 import Search from "../Search/Search";
 import Post from "../Post";
-import SideBar from "../SideBar";
+import Users from "../Users";
 
 const likedPost = {
   seriesSrc:
@@ -19,21 +19,20 @@ const HomePage = () => (
     <div className={styles.search}>
       <Search />
     </div>
-    <div className={styles.sideBarWrapper}>
-      <SideBar className={styles.sideBar} />
+    <div className={styles.users}>
+      <Users />
     </div>
-    <div className={styles.postsContainer}>
-      {new Array(3).fill().map(() => (
-        <div className={styles.postWrapper}>
-          <Post
-            className={styles.post}
-            imageSrc={likedPost.imageSrc}
-            seriesTitle={likedPost.seriesTitle}
-            seriesSrc={likedPost.seriesSrc}
-            commentsCount={likedPost.likesCount}
-            likesCount={likedPost.count}
-          />
-        </div>
+    <div className={styles.posts}>
+      {new Array(3).fill().map((_, index) => (
+        <Post
+          className={styles.post}
+          imageSrc={likedPost.imageSrc}
+          seriesTitle={likedPost.seriesTitle}
+          seriesSrc={likedPost.seriesSrc}
+          commentsCount={likedPost.count}
+          likesCount={likedPost.count}
+          key={index}
+        />
       ))}
     </div>
   </div>

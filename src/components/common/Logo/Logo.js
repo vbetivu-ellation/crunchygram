@@ -11,7 +11,7 @@ const Logo = ({ className }) => (
       xmlns="http://www.w3.org/2000/svg"
       className={classNames(styles.condensed, className)}
     >
-      <g fill="none" fill-rule="evenodd">
+      <g fill="none" fillRule="evenodd">
         <path
           d="M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16c.366 0 .728-.013 1.087-.037C9.72 31.52 3.881 25.406 3.881 17.926c0-7.767 6.296-14.063 14.063-14.063 7.436 0 13.523 5.771 14.028 13.078.018-.311.028-.625.028-.941 0-8.837-7.163-16-16-16"
           fill="#000"
