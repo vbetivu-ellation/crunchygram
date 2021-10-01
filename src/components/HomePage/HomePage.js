@@ -1,42 +1,28 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect } from "react";
 
 import styles from "./HomePage.module.css";
 import Search from "../Search/Search";
 import Post from "../Post";
 import SideBar from "../SideBar";
-import { API } from "../../api";
+import PostsContext from "../../contexts/PostsContext";
 import LoadingSpinner from "../LoadingSpinner";
-import debounce from "../../util/debounce";
+import useInfiniteScroll from "../hooks/useInfiniteScroll";
 
 const HomePage = () => {
-  const [ isLoading, setIsLoading ] = useState(false);
-  const [ data, setData ] = useState([]);
-  const fetch = useCallback(async () => {
-    const start = data.length;
-    const result = await API.getPosts({ start });
+  const {data, isLoading, fetchPosts, setData, appendData} = useContext(PostsContext);
 
-    setData([ ...data, ...result ]);
-    setIsLoading(false);
-  }, [ data, setData, setIsLoading ]);
-  const handleScroll = debounce(useCallback(() => {
-    const isNearTheBottom = (window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 200;
-    if (isNearTheBottom && !isLoading) {
-      setIsLoading(true);
-      fetch();
-    }
-  }, [ isLoading, fetch ]));
+  const fetchNextPage = useCallback(() => {
+    if (isLoading) return;
+
+    fetchPosts({start: data.length}).then(appendData);
+  }, [data, fetchPosts, appendData, isLoading]);
+
+  useInfiniteScroll(fetchNextPage);
 
   useEffect(() => {
-    setIsLoading(true);
-    fetch();
+    fetchPosts().then(setData);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [ handleScroll ]);
 
   return (
     <div className={styles.homePage}>
@@ -47,7 +33,7 @@ const HomePage = () => {
         <SideBar className={styles.sideBar} />
       </div>
       <div className={styles.postsContainer}>
-        {data.map(({ id, avatar, image, name, likesCount, commentsCount }) => (
+        {data.map(({id, avatar, image, name, likesCount, commentsCount}) => (
           <div className={styles.postWrapper} key={id}>
             <Post
               className={styles.post}

@@ -4,13 +4,13 @@ import PropTypes from "prop-types";
 import styles from "./SearchButton.module.css";
 import { Button, SearchSvg } from "../common";
 
-const SearchButton = ({ isDisabled }) => {
+const SearchButton = ({ isDisabled, onClick }) => {
   return (
     <Button
       className={styles.button}
       type="filled"
       isDisabled={isDisabled}
-      onClick={() => {}}
+      onClick={onClick}
     >
       <SearchSvg className={styles.searchIcon} />
       Search
@@ -20,6 +20,7 @@ const SearchButton = ({ isDisabled }) => {
 
 SearchButton.propTypes = {
   isDisabled: PropTypes.bool,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default SearchButton;
