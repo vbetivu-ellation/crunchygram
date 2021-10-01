@@ -7,6 +7,7 @@ import ProfilePage from "./components/ProfilePage";
 import PostPage from "./components/PostPage";
 
 import styles from "./App.module.css";
+import HomePage from "./components/HomePage";
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
             <PostPage />
           </Route>
           <Route path="/" exact>
-            Home
+            <HomePage />
           </Route>
           <Route path="*">
             <NotFound />

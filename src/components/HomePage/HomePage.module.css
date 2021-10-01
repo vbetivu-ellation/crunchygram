@@ -1,0 +1,51 @@
+.homePage {
+  display: grid;
+
+  grid-template-areas: "search" "users" "posts";
+}
+
+.homeWrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 20px;
+}
+
+.search {
+  grid-area: search;
+}
+
+.postsContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  grid-area: posts;
+}
+
+.sideBarWrapper {
+  grid-area: users;
+}
+
+.sideBar {
+  display: flex;
+}
+
+@media (min-width: 578px) {
+  .search {
+    padding: 20px;
+  }
+}
+
+@media (min-width: 800px) {
+  .homePage {
+    grid-template-areas: "search search" "posts users";
+    grid-template-columns: 1fr 200px;
+    column-gap: 32px;
+  }
+  .search {
+    padding: 20px;
+  }
+  .sideBar {
+    display: flex;
+    flex-direction: column;
+  }
+}
