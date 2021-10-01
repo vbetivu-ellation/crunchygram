@@ -7,9 +7,10 @@ import { Text } from "../common";
 
 import styles from "./SideBar.module.css";
 import UsersListContext from "../../contexts/UsersListContext";
+import LoadingSpinner from "../LoadingSpinner";
 
 const SideBar = ({className}) => {
-  const {fetchUsers, users} = useContext(UsersListContext);
+  const {fetchUsers, users, areUsersLoading} = useContext(UsersListContext);
 
   useEffect(() => {
     fetchUsers();
@@ -27,7 +28,11 @@ const SideBar = ({className}) => {
         Active users
       </Text>
       <div className={styles.userCard}>
-        {users.map((user) => (
+        {areUsersLoading ? (
+          <center>
+            <LoadingSpinner />
+          </center>
+        ) : users.map((user) => (
           <UserCard user={user} key={user.id} />
         ))}
       </div>
