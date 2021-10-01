@@ -15,7 +15,7 @@ import { axiosInstance } from '.';
  */
 const login = ({
   username,
-}) => axiosInstance.post('/user/login', { username }).then(({ data }) => data);
+} = {}) => axiosInstance.post('/user/login', { username }).then(({ data }) => data);
 
 /**
  * @returns {null}
@@ -32,14 +32,14 @@ const getMe = () => axiosInstance.get('/user/me').then(({ data }) => data);
  */
 const getUserByUsername = ({
   username,
-}) => axiosInstance.get(`/user/${username}`).then(({ data }) => data);
+} = {}) => axiosInstance.get(`/user/${username}`).then(({ data }) => data);
 
 /**
  * @returns {Promise<array<User>>}
  */
 const getUsers = ({
   search = '',
-}) => axiosInstance.get('/user', {
+} = {}) => axiosInstance.get('/user', {
   params: { search },
 }).then(({ data }) => data);
 

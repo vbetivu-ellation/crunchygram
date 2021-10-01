@@ -1,42 +1,73 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 import styles from "./HomePage.module.css";
 import Search from "../Search/Search";
 import Post from "../Post";
 import SideBar from "../SideBar";
+import { API } from "../../api";
+import LoadingSpinner from "../LoadingSpinner";
+import debounce from "../../util/debounce";
 
-const likedPost = {
-  seriesSrc:
-    "https://1.bp.blogspot.com/-q7n4nU2bu7s/YKuBM-lttXI/AAAAAAAARrA/racmI8wVkZ0ayTxqrbE0sVy3q-VxykJLwCLcBGAsYHQ/s400/black-hair-girl-poto-in-black-brown-T-shart.jpg",
-  seriesTitle: "Naruto",
-  imageSrc:
-    "https://beta.crunchyroll.com/imgsrv/display/thumbnail/1200x675/catalog/crunchyroll/4fbfedc219a7ef7cf2974e2104ad880d.jpg",
-  count: 25,
+const HomePage = () => {
+  const [ isLoading, setIsLoading ] = useState(false);
+  const [ data, setData ] = useState([]);
+  const fetch = useCallback(async () => {
+    const start = data.length;
+    const result = await API.getPosts({ start });
+
+    setData([ ...data, ...result ]);
+    setIsLoading(false);
+  }, [ data, setData, setIsLoading ]);
+  const handleScroll = debounce(useCallback(() => {
+    const isNearTheBottom = (window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 200;
+    if (isNearTheBottom && !isLoading) {
+      setIsLoading(true);
+      fetch();
+    }
+  }, [ isLoading, fetch ]));
+
+  useEffect(() => {
+    setIsLoading(true);
+    fetch();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [ handleScroll ]);
+
+  return (
+    <div className={styles.homePage}>
+      <div className={styles.search}>
+        <Search />
+      </div>
+      <div className={styles.sideBarWrapper}>
+        <SideBar className={styles.sideBar} />
+      </div>
+      <div className={styles.postsContainer}>
+        {data.map(({ id, avatar, image, name, likesCount, commentsCount }) => (
+          <div className={styles.postWrapper} key={id}>
+            <Post
+              className={styles.post}
+              imageSrc={image}
+              seriesTitle={name}
+              seriesSrc={avatar}
+              commentsCount={commentsCount}
+              likesCount={likesCount}
+            />
+          </div>
+        ))}
+
+        {isLoading && (
+          <center>
+            <LoadingSpinner />
+          </center>
+        )}
+      </div>
+    </div>
+  );
 };
-
-const HomePage = () => (
-  <div className={styles.homePage}>
-    <div className={styles.search}>
-      <Search />
-    </div>
-    <div className={styles.sideBarWrapper}>
-      <SideBar className={styles.sideBar} />
-    </div>
-    <div className={styles.postsContainer}>
-      {new Array(3).fill().map(() => (
-        <div className={styles.postWrapper}>
-          <Post
-            className={styles.post}
-            imageSrc={likedPost.imageSrc}
-            seriesTitle={likedPost.seriesTitle}
-            seriesSrc={likedPost.seriesSrc}
-            commentsCount={likedPost.likesCount}
-            likesCount={likedPost.count}
-          />
-        </div>
-      ))}
-    </div>
-  </div>
-);
 
 export default HomePage;
