@@ -8,7 +8,7 @@ import PostPage from "./components/PostPage";
 
 import styles from "./App.module.css";
 import HomePage from "./components/HomePage";
-import { PostsProvider } from "./contexts/PostsContext";
+import { HomePageProvider } from "./contexts/HomePageContext";
 
 function App() {
   return (
@@ -23,9 +23,9 @@ function App() {
             <PostPage />
           </Route>
           <Route path="/" exact>
-            <PostsProvider>
+            <HomePageProvider>
               <HomePage />
-            </PostsProvider>
+            </HomePageProvider>
           </Route>
           <Route path="*">
             <NotFound />

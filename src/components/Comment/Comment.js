@@ -1,42 +1,36 @@
-import React from "react";
-// import PropTypes from "prop-types";
+import React, { useContext } from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 import { Avatar, Text } from "../common";
 
 import styles from "./Comment.module.css";
+import UsersListContext from "../../contexts/UsersListContext";
 
-const authorId = "312";
-const authorName = "Eric";
-const comment =
-  "hello aleohello aleohello aleohello aleohello aleohello aleohello aleo";
-const authorAvatar =
-  "https://static.crunchyroll.com/assets/avatar/170x170/05-cr-hime-sleepy.png";
+const Comment = ({username, comment}) => {
+  const {users} = useContext(UsersListContext);
+  const {avatar} = users.find(user => user.username === username) || {};
 
-const Comment = () =>
-  // {
-  //   commentId
-  // }
-  {
-    return (
-      <div>
-        <Link to={`/profile/${authorId}`} className={styles.author}>
+  return (
+    <div>
+      <Link to={`/profile/${username}`} className={styles.author}>
           <span className={styles.avatar}>
-            <Avatar src={authorAvatar} alt="User avatar" />
+            <Avatar src={avatar} alt="User avatar" />
           </span>
-          <Text as="span" size="m" weight="semibold">
-            {authorName}:{" "}
-          </Text>
-        </Link>
-        <Text as="p" size="m" className={styles.text}>
-          {comment}
+        <Text as="span" size="m" weight="semibold">
+          {username}:{" "}
         </Text>
-      </div>
-    );
-  };
+      </Link>
+      <Text as="p" size="m" className={styles.text}>
+        {comment}
+      </Text>
+    </div>
+  );
+};
 
-// Comment.propTypes = {
-//   commentId: PropTypes.string.isRequired,
-// };
+Comment.propTypes = {
+  username: PropTypes.string.isRequired,
+  comment: PropTypes.string.isRequired,
+};
 
 export default Comment;

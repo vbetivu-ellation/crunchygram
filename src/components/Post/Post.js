@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
@@ -15,12 +15,17 @@ const Post = ({
   seriesTitle,
   likesCount,
   commentsCount,
+  comments,
 }) => {
+  const [isLiked, setIsLiked] = useState(false);
   const [isCommentSectionVisible, setIsCommentSectionVisible] = useState(false);
   const handleCommentsToggle = useCallback(
     () => setIsCommentSectionVisible((value) => !value),
-    []
+    [],
   );
+  const handleLikeToggle = useCallback(() => {
+    setIsLiked(!isLiked);
+  }, [setIsLiked, isLiked]);
 
   return (
     <article className={styles.article}>
@@ -41,13 +46,13 @@ const Post = ({
         })}
       >
         <LikeButton
-          onClick={handleCommentsToggle}
+          onClick={handleLikeToggle}
           count={likesCount}
-          isLiked={isCommentSectionVisible}
+          isLiked={isLiked}
         />
         <CommentsButton onClick={handleCommentsToggle} count={commentsCount} />
       </div>
-      {isCommentSectionVisible && <CommentsSection />}
+      {isCommentSectionVisible && <CommentsSection comments={comments} />}
     </article>
   );
 };
@@ -58,6 +63,11 @@ Post.propTypes = {
   seriesTitle: PropTypes.string.isRequired,
   likesCount: PropTypes.number.isRequired,
   commentsCount: PropTypes.number.isRequired,
+  comments: PropTypes.array.isRequired,
+};
+
+Post.defaultProps = {
+  comments: [],
 };
 
 export default Post;

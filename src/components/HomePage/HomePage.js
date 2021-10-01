@@ -6,17 +6,16 @@ import Users from "../Users";
 import PostsContext from "../../contexts/PostsContext";
 import LoadingSpinner from "../LoadingSpinner";
 import useInfiniteScroll from "../hooks/useInfiniteScroll";
-import { UsersListProvider } from "../../contexts/UsersListContext";
 
 import styles from "./HomePage.module.css";
 
 const HomePage = () => {
-  const { data, isLoading, fetchPosts, appendData } = useContext(PostsContext);
+  const {data, isLoading, fetchPosts, appendData} = useContext(PostsContext);
 
   const fetchNextPage = useCallback(() => {
     if (isLoading) return;
 
-    fetchPosts({ start: data.length }).then(appendData);
+    fetchPosts({start: data.length}).then(appendData);
   }, [data, fetchPosts, appendData, isLoading]);
 
   useInfiniteScroll(fetchNextPage);
@@ -32,18 +31,17 @@ const HomePage = () => {
         <Search />
       </div>
       <div className={styles.users}>
-        <UsersListProvider>
-          <Users />
-        </UsersListProvider>
+        <Users />
       </div>
       <div className={styles.posts}>
-        {data.map(({ id, avatar, image, name, likesCount, commentsCount }) => (
+        {data.map(({id, avatar, image, name, likesCount, commentsCount, comments}) => (
           <Post
             imageSrc={image}
             seriesTitle={name}
             seriesSrc={avatar}
             commentsCount={commentsCount}
             likesCount={likesCount}
+            comments={comments}
             key={id}
           />
         ))}
