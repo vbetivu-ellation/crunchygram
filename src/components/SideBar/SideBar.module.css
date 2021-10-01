@@ -1,0 +1,17 @@
+.sideBar {
+  padding: 20px;
+}
+.activeUsersTitle {
+  color: var(--color-scarpa-flow);
+  margin-bottom: 24px;
+}
+
+.userCard {
+  display: inline;
+}
+
+@media (min-width: 578px) {
+  .sideBar {
+    padding: 20px;
+  }
+}
