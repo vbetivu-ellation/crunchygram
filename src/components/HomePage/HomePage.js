@@ -7,6 +7,7 @@ import SideBar from "../SideBar";
 import PostsContext from "../../contexts/PostsContext";
 import LoadingSpinner from "../LoadingSpinner";
 import useInfiniteScroll from "../hooks/useInfiniteScroll";
+import { UsersListProvider } from "../../contexts/UsersListContext";
 
 const HomePage = () => {
   const {data, isLoading, fetchPosts, setData, appendData} = useContext(PostsContext);
@@ -30,7 +31,9 @@ const HomePage = () => {
         <Search />
       </div>
       <div className={styles.sideBarWrapper}>
-        <SideBar className={styles.sideBar} />
+        <UsersListProvider>
+          <SideBar className={styles.sideBar} />
+        </UsersListProvider>
       </div>
       <div className={styles.postsContainer}>
         {data.map(({id, avatar, image, name, likesCount, commentsCount}) => (
