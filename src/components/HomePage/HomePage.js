@@ -10,7 +10,7 @@ import useInfiniteScroll from "../hooks/useInfiniteScroll";
 import { UsersListProvider } from "../../contexts/UsersListContext";
 
 const HomePage = () => {
-  const {data, isLoading, fetchPosts, setData, appendData} = useContext(PostsContext);
+  const {data, isLoading, fetchPosts, appendData} = useContext(PostsContext);
 
   const fetchNextPage = useCallback(() => {
     if (isLoading) return;
@@ -21,7 +21,7 @@ const HomePage = () => {
   useInfiniteScroll(fetchNextPage);
 
   useEffect(() => {
-    fetchPosts().then(setData);
+    fetchPosts().then(appendData);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

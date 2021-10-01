@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useCallback, useContext } from "react";
 import PropTypes from "prop-types";
 
 import styles from "./SearchButton.module.css";
 import { Button, SearchSvg } from "../common";
+import PostsContext from "../../contexts/PostsContext";
 
-const SearchButton = ({ isDisabled, onClick }) => {
+const SearchButton = ({isDisabled}) => {
+  const {fetchPosts, setData} = useContext(PostsContext);
+
+  const onClick = useCallback(
+    () => {
+      setData([]);
+
+      return fetchPosts().then(setData);
+    },
+    [fetchPosts, setData],
+  );
+
   return (
     <Button
       className={styles.button}
@@ -20,7 +32,6 @@ const SearchButton = ({ isDisabled, onClick }) => {
 
 SearchButton.propTypes = {
   isDisabled: PropTypes.bool,
-  onClick: PropTypes.func.isRequired,
 };
 
 export default SearchButton;
