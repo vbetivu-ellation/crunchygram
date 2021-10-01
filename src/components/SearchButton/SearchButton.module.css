@@ -1,8 +1,19 @@
 .button {
-  display: flex;
-  align-items: center;
+  display: block;
+  padding: 8px;
+  transition: color 0.2s ease;
+  color: var(--color-orange-base);
 }
 
-.searchIcon {
-  margin-right: 4px;
+.button:hover {
+  color: var(--color-orange-light);
+}
+
+.button:active {
+  color: var(--color-orange-base);
+}
+
+.button:disabled {
+  color: var(--color-scarpa-flow);
+  pointer-events: none;
 }

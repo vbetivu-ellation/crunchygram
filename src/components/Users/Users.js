@@ -18,12 +18,12 @@ const user = {
 
 const Users = ({ className }) => {
   return (
-    <div className={className}>
+    <div className={classNames(styles.wrapper, className)}>
       <Heading as="h3" size="xs" className={styles.title}>
         Active users
       </Heading>
       <ul className={classNames(styles.list, {})}>
-        {new Array(4).fill().map((_, index) => (
+        {new Array(3).fill().map((_, index) => (
           <li key={index} className={styles.item}>
             <UserCard user={user} />
           </li>

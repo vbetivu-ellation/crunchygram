@@ -2,19 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import styles from "./SearchButton.module.css";
-import { Button, SearchSvg } from "../common";
+import { SearchSvg } from "../common";
 
 const SearchButton = ({ isDisabled }) => {
   return (
-    <Button
-      className={styles.button}
-      type="filled"
-      isDisabled={isDisabled}
-      onClick={() => {}}
-    >
+    <button className={styles.button} disabled={isDisabled} onClick={() => {}}>
       <SearchSvg className={styles.searchIcon} />
-      Search
-    </Button>
+    </button>
   );
 };
 

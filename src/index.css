@@ -252,6 +252,7 @@ button {
 html,
 body {
   height: 100%;
+  overscroll-behavior: none;
 }
 
 a,
@@ -267,4 +268,5 @@ a:hover {
   min-height: 100%;
   display: grid;
   grid-template-rows: auto 1fr auto;
+  background-color: var(--color-alabaster);
 }

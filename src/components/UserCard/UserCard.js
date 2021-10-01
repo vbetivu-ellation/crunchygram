@@ -10,7 +10,7 @@ const UserCard = ({ user }) => {
   return (
     <Link to="/profile/id" className={styles.wrapper}>
       <Avatar src={user.avatar} className={styles.avatar} alt="User avatar." />
-      <Text as="p" size="l" weight="semibold" className={styles.username}>
+      <Text as="p" size="m" weight="semibold" className={styles.username}>
         {"abcdef".repeat(Math.floor(Math.random() * 5 + 1))}
       </Text>
     </Link>

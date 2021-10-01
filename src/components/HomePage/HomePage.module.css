@@ -3,28 +3,34 @@
   display: grid;
   grid-template-areas: "search" "users" "posts";
   grid-template-columns: minmax(0, 100%);
+  align-items: start;
 }
 .search {
   grid-area: search;
-  margin-bottom: 48px;
+  margin-bottom: 16px;
 }
 
 .users {
   grid-area: users;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .posts {
   grid-area: posts;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 28px;
+  gap: 16px;
 }
 
 @media (min-width: 800px) {
   .homePage {
-    grid-template-areas: "search -" "posts users";
-    grid-template-columns: 1fr 250px;
-    column-gap: 32px;
+    grid-template-areas: "posts search" "posts users";
+    grid-template-columns: 1fr 256px;
+    grid-template-rows: minmax(0, min-content) minmax(0, 1fr);
+    column-gap: 16px;
+  }
+
+  .users {
+    margin-bottom: none;
   }
 }

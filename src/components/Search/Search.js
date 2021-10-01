@@ -1,6 +1,5 @@
 import React, { useState, useCallback } from "react";
 
-import { Input } from "../common";
 import SearchButton from "../SearchButton";
 
 import styles from "./Search.module.css";
@@ -15,11 +14,11 @@ const Search = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.inputWrapper}>
-        <Input
+        <input
+          className={styles.input}
           value={query}
           onChange={handleChange}
-          label="Search"
-          placeholder="Type here..."
+          placeholder="Search for a title..."
         />
       </div>
       <SearchButton isDisabled={query.length < 4} />
