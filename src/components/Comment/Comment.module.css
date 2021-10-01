@@ -1,0 +1,19 @@
+.author {
+  position: relative;
+  padding-left: 24px;
+  margin-right: 4px;
+}
+
+.avatar {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+}
+
+.text {
+  display: inline;
+}

@@ -1,13 +1,38 @@
+.wrapper {
+  display: flex;
+  align-items: flex-start;
+  background-color: var(--color-alabaster);
+}
+
 .textarea {
   resize: none;
   background: none;
   border: none;
   outline: none;
   color: currentColor;
+  font-family: inherit;
 
-  background-color: var(--color-alabaster);
-  font-size: 16px;
-  line-height: 24px;
+  width: 100%;
+  font-size: 14px;
+  line-height: 18px;
   border-radius: 4px;
   padding: 6px 8px 10px;
+}
+
+.button {
+  padding: 4px;
+  transition: color 0.2s ease;
+}
+
+.button:hover {
+  color: var(--color-scooter);
+}
+
+.button:active {
+  color: var(--color-scooter-dark);
+}
+
+.button:disabled {
+  pointer-events: none;
+  color: var(--color-silver);
 }

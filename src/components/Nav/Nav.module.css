@@ -2,7 +2,7 @@
   z-index: 999;
   position: sticky;
   top: 0;
-  height: 54px;
+  height: 60px;
   background-color: var(--color-alabaster);
 }
 
@@ -20,10 +20,22 @@
   justify-content: space-between;
 }
 
+.profile {
+  display: flex;
+  align-items: center;
+
+  text-decoration: none;
+}
+
+.username {
+  color: var(--color-black);
+  margin-right: 8px;
+}
+
 .avatar {
   display: block;
-  width: 28px;
-  height: 28px;
+  width: 36px;
+  height: 36px;
 }
 
 @media (min-width: 578px) {

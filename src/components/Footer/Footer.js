@@ -5,7 +5,7 @@ import styles from "./Footer.module.css";
 
 const Footer = () => (
   <footer className={styles.footer}>
-    <Text as="p" size="l" weight="semibolt">
+    <Text as="p" size="l">
       © 2021 Crunchyroll GirlsGoIT
     </Text>
   </footer>

@@ -31,8 +31,8 @@ const ProfilePage = () => {
         commentCount={user.commentCount}
       />
       <div className={styles.grid}>
-        {new Array(23).fill().map(() => (
-          <div className={styles.postWrapper}>
+        {new Array(23).fill().map((_, index) => (
+          <div className={styles.postWrapper} key={index}>
             <ProfilePost
               className={styles.post}
               src={likedPost.imageSrc}
