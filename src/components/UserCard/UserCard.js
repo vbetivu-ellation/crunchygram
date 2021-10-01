@@ -8,10 +8,10 @@ import styles from "./UserCard.module.css";
 
 const UserCard = ({ user }) => {
   return (
-    <Link to="/profile/id" className={styles.wrapper}>
+    <Link to={`/profile/${user.id}`} className={styles.wrapper}>
       <Avatar src={user.avatar} className={styles.avatar} alt="User avatar." />
       <Text as="p" size="m" weight="semibold" className={styles.username}>
-        {"abcdef".repeat(Math.floor(Math.random() * 5 + 1))}
+        {user.username}
       </Text>
     </Link>
   );
@@ -21,6 +21,7 @@ UserCard.propTypes = {
   user: PropTypes.shape({
     avatar: PropTypes.string,
     username: PropTypes.string,
+    id: PropTypes.string,
   }),
 };
 
