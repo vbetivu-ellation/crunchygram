@@ -1,41 +1,61 @@
-import React from "react";
+import React, { useCallback, useContext, useEffect } from "react";
 
-import styles from "./HomePage.module.css";
-import Search from "../Search/Search";
+import Search from "../Search";
 import Post from "../Post";
 import Users from "../Users";
+import PostsContext from "../../contexts/PostsContext";
+import LoadingSpinner from "../LoadingSpinner";
+import useInfiniteScroll from "../hooks/useInfiniteScroll";
+import { UsersListProvider } from "../../contexts/UsersListContext";
 
-const likedPost = {
-  seriesSrc:
-    "https://1.bp.blogspot.com/-q7n4nU2bu7s/YKuBM-lttXI/AAAAAAAARrA/racmI8wVkZ0ayTxqrbE0sVy3q-VxykJLwCLcBGAsYHQ/s400/black-hair-girl-poto-in-black-brown-T-shart.jpg",
-  seriesTitle: "Naruto",
-  imageSrc:
-    "https://beta.crunchyroll.com/imgsrv/display/thumbnail/1200x675/catalog/crunchyroll/4fbfedc219a7ef7cf2974e2104ad880d.jpg",
-  count: 25,
+import styles from "./HomePage.module.css";
+
+const HomePage = () => {
+  const { data, isLoading, fetchPosts, setData, appendData } =
+    useContext(PostsContext);
+
+  const fetchNextPage = useCallback(() => {
+    if (isLoading) return;
+
+    fetchPosts({ start: data.length }).then(appendData);
+  }, [data, fetchPosts, appendData, isLoading]);
+
+  useInfiniteScroll(fetchNextPage);
+
+  useEffect(() => {
+    fetchPosts().then(setData);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return (
+    <div className={styles.homePage}>
+      <div className={styles.search}>
+        <Search />
+      </div>
+      <div className={styles.users}>
+        <UsersListProvider>
+          <Users />
+        </UsersListProvider>
+      </div>
+      <div className={styles.posts}>
+        {data.map(({ id, avatar, image, name, likesCount, commentsCount }) => (
+          <Post
+            imageSrc={image}
+            seriesTitle={name}
+            seriesSrc={avatar}
+            commentsCount={commentsCount}
+            likesCount={likesCount}
+            key={id}
+          />
+        ))}
+        {isLoading && (
+          <center>
+            <LoadingSpinner />
+          </center>
+        )}
+      </div>
+    </div>
+  );
 };
-
-const HomePage = () => (
-  <div className={styles.homePage}>
-    <div className={styles.search}>
-      <Search />
-    </div>
-    <div className={styles.users}>
-      <Users />
-    </div>
-    <div className={styles.posts}>
-      {new Array(3).fill().map((_, index) => (
-        <Post
-          className={styles.post}
-          imageSrc={likedPost.imageSrc}
-          seriesTitle={likedPost.seriesTitle}
-          seriesSrc={likedPost.seriesSrc}
-          commentsCount={likedPost.count}
-          likesCount={likedPost.count}
-          key={index}
-        />
-      ))}
-    </div>
-  </div>
-);
 
 export default HomePage;

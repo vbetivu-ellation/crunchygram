@@ -1,14 +1,19 @@
-import React, { useState, useCallback } from "react";
+import React, { useCallback, useContext } from "react";
 
 import SearchButton from "../SearchButton";
 
 import styles from "./Search.module.css";
+import PostsContext from "../../contexts/PostsContext";
 
 const Search = () => {
-  const [query, setQuery] = useState("");
+  const { fetchPosts, setData, search, setSearch } = useContext(PostsContext);
   const handleChange = useCallback(
-    ({ target: { value } }) => setQuery(value),
-    []
+    ({ target: { value } }) => setSearch(value),
+    [setSearch]
+  );
+  const onSearchClick = useCallback(
+    () => fetchPosts().then(setData),
+    [fetchPosts, setData]
   );
 
   return (
@@ -16,12 +21,12 @@ const Search = () => {
       <div className={styles.inputWrapper}>
         <input
           className={styles.input}
-          value={query}
+          value={search}
           onChange={handleChange}
           placeholder="Search for a title..."
         />
       </div>
-      <SearchButton isDisabled={query.length < 4} />
+      <SearchButton isDisabled={search.length < 4} onClick={onSearchClick} />
     </div>
   );
 };

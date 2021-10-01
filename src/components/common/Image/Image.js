@@ -11,9 +11,13 @@ const Image = ({ alt, src, className }) => {
 };
 
 Image.propTypes = {
-  alt: PropTypes.string.isRequired,
+  alt: PropTypes.string,
   className: PropTypes.string,
   src: PropTypes.string.isRequired,
+};
+
+Image.defaultProps = {
+  alt: "",
 };
 
 export default Image;

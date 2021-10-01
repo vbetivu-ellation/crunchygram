@@ -19,7 +19,7 @@ const getPosts = ({
   start = 0,
   limit = 10,
   search = '',
-}) => axiosInstance.get('/post', {
+} = {}) => axiosInstance.get('/post', {
   params: { limit, start, search },
 }).then(({ data }) => data);
 
@@ -29,7 +29,7 @@ const getPosts = ({
 const getMyLikedPosts = ({
   start = 0,
   limit = 10,
-}) => axiosInstance.get('/post/liked', {
+} = {}) => axiosInstance.get('/post/liked', {
   params: { limit, start },
 }).then(({ data }) => data);
 
@@ -40,7 +40,7 @@ const getPostsLikedByUsername = ({
   username,
   start = 0,
   limit = 10,
-}) => axiosInstance.get(`/post/liked/${username}`, {
+} = {}) => axiosInstance.get(`/post/liked/${username}`, {
   params: { limit, start },
 }).then(({ data }) => data);
 

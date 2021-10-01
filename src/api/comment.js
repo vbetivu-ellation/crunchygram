@@ -14,6 +14,6 @@ import { axiosInstance } from '.';
 const createComment = ({
   text,
   postId,
-}) => axiosInstance.post('/commment', { text, postId }).then(({ data }) => data);
+} = {}) => axiosInstance.post('/commment', { text, postId }).then(({ data }) => data);
 
 export { createComment };

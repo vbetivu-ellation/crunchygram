@@ -13,7 +13,7 @@ import { axiosInstance } from '.';
  */
 const togglePostLike = ({
   postId,
-}) => axiosInstance.post(`/like/toggle/${postId}`)
+} = {}) => axiosInstance.post(`/like/toggle/${postId}`)
   .then(({ data }) => data || null);
 
 export { togglePostLike };

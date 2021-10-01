@@ -1,4 +1,4 @@
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
@@ -8,6 +8,7 @@ import PostPage from "./components/PostPage";
 
 import styles from "./App.module.css";
 import HomePage from "./components/HomePage";
+import { PostsProvider } from "./contexts/PostsContext";
 
 function App() {
   return (
@@ -22,7 +23,9 @@ function App() {
             <PostPage />
           </Route>
           <Route path="/" exact>
-            <HomePage />
+            <PostsProvider>
+              <HomePage />
+            </PostsProvider>
           </Route>
           <Route path="*">
             <NotFound />
