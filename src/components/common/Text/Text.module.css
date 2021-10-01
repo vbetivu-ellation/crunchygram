@@ -1,5 +1,5 @@
 .text {
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .semibold {
@@ -7,7 +7,7 @@
 }
 
 .bold {
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .s {
