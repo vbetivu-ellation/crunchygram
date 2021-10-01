@@ -34,13 +34,14 @@ const HomePage = () => {
         <Users />
       </div>
       <div className={styles.posts}>
-        {data.map(({id, avatar, image, name, likesCount, commentsCount}) => (
+        {data.map(({id, avatar, image, name, likesCount, commentsCount, comments}) => (
           <Post
             imageSrc={image}
             seriesTitle={name}
             seriesSrc={avatar}
             commentsCount={commentsCount}
             likesCount={likesCount}
+            comments={comments}
             key={id}
           />
         ))}
