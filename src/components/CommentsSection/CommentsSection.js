@@ -8,7 +8,6 @@ import Comment from "../Comment";
 import styles from "./CommentsSection.module.css";
 
 const CommentsSection = ({className, comments}) => {
-  console.log('comments', comments);
   const [newCommentValue, setNewCommentValue] = useState("");
   const handleCommentValueChange = useCallback(
     ({ target: { value } }) => setNewCommentValue(value),

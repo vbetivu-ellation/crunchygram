@@ -1,15 +1,15 @@
-import React, { useContext } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 import { Avatar, Text } from "../common";
 
 import styles from "./Comment.module.css";
-import UsersListContext from "../../contexts/UsersListContext";
+import useSelector from "../../hooks/useSelector";
+import { getUserByUsername } from "../../store/selectors/user";
 
 const Comment = ({username, comment}) => {
-  const {users} = useContext(UsersListContext);
-  const {avatar} = users.find(user => user.username === username) || {};
+  const {avatar} = useSelector(getUserByUsername(username));
 
   return (
     <div>

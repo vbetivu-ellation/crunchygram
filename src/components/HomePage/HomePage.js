@@ -1,27 +1,27 @@
-import React, { useCallback, useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 
 import Search from "../Search";
 import Post from "../Post";
 import Users from "../Users";
-import PostsContext from "../../contexts/PostsContext";
 import LoadingSpinner from "../LoadingSpinner";
-import useInfiniteScroll from "../hooks/useInfiniteScroll";
 
 import styles from "./HomePage.module.css";
+import useAction from "../../hooks/useAction";
+import { fetchPostsAction, fetchPostsNextPageAction } from "../../store/actions/post";
+import useInfiniteScroll from "../../hooks/useInfiniteScroll";
+import { arePostsLoading, getPostList } from "../../store/selectors/post";
+import useSelector from "../../hooks/useSelector";
 
 const HomePage = () => {
-  const {data, isLoading, fetchPosts, appendData} = useContext(PostsContext);
-
-  const fetchNextPage = useCallback(() => {
-    if (isLoading) return;
-
-    fetchPosts({start: data.length}).then(appendData);
-  }, [data, fetchPosts, appendData, isLoading]);
+  const fetchNextPage = useAction(fetchPostsNextPageAction);
+  const fetchFirstPage = useAction(fetchPostsAction);
+  const isLoading = useSelector(arePostsLoading());
+  const data = useSelector(getPostList());
 
   useInfiniteScroll(fetchNextPage);
 
   useEffect(() => {
-    fetchPosts().then(appendData);
+    fetchFirstPage();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

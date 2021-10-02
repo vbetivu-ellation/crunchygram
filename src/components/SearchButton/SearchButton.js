@@ -1,22 +1,20 @@
-import React, { useCallback, useContext } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 import { SearchSvg } from "../common";
-import PostsContext from "../../contexts/PostsContext";
-
 import styles from "./SearchButton.module.css";
+import useAction from "../../hooks/useAction";
+import { fetchPostsAction } from "../../store/actions/post";
 
-const SearchButton = ({ isDisabled }) => {
-  const { fetchPosts, setData } = useContext(PostsContext);
-
-  const onClick = useCallback(() => {
-    setData([]);
-
-    return fetchPosts().then(setData);
-  }, [fetchPosts, setData]);
+const SearchButton = ({isDisabled}) => {
+  const fetchFirstPage = useAction(fetchPostsAction);
 
   return (
-    <button className={styles.button} disabled={isDisabled} onClick={onClick}>
+    <button
+      className={styles.button}
+      disabled={isDisabled}
+      onClick={fetchFirstPage}
+    >
       <SearchSvg className={styles.searchIcon} />
     </button>
   );

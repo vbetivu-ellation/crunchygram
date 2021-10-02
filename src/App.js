@@ -8,32 +8,32 @@ import PostPage from "./components/PostPage";
 
 import styles from "./App.module.css";
 import HomePage from "./components/HomePage";
-import { HomePageProvider } from "./contexts/HomePageContext";
+import StoreProvider from "./store";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Nav />
-      <div className={styles.content}>
-        <Switch>
-          <Route path="/profile/:id" exact>
-            <ProfilePage />
-          </Route>
-          <Route path="/post/:id" exact>
-            <PostPage />
-          </Route>
-          <Route path="/" exact>
-            <HomePageProvider>
+    <StoreProvider>
+      <BrowserRouter>
+        <Nav />
+        <div className={styles.content}>
+          <Switch>
+            <Route path="/profile/:id" exact>
+              <ProfilePage />
+            </Route>
+            <Route path="/post/:id" exact>
+              <PostPage />
+            </Route>
+            <Route path="/" exact>
               <HomePage />
-            </HomePageProvider>
-          </Route>
-          <Route path="*">
-            <NotFound />
-          </Route>
-        </Switch>
-      </div>
-      <Footer />
-    </BrowserRouter>
+            </Route>
+            <Route path="*">
+              <NotFound />
+            </Route>
+          </Switch>
+        </div>
+        <Footer />
+      </BrowserRouter>
+    </StoreProvider>
   );
 }
 

@@ -1,16 +1,21 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect } from "react";
 import classNames from "classnames";
 import PropTypes from "prop-types";
 
 import UserCard from "../UserCard";
 import { Heading } from "../common";
-import UsersListContext from "../../contexts/UsersListContext";
 import LoadingSpinner from "../LoadingSpinner";
 
 import styles from "./Users.module.css";
+import useAction from "../../hooks/useAction";
+import { fetchUsersAction } from "../../store/actions/user";
+import useSelector from "../../hooks/useSelector";
+import { getUserList, getUsersLoading } from "../../store/selectors/user";
 
-const Users = ({ className }) => {
-  const { fetchUsers, users, areUsersLoading } = useContext(UsersListContext);
+const Users = ({className}) => {
+  const fetchUsers = useAction(fetchUsersAction);
+  const users = useSelector(getUserList());
+  const isLoading = useSelector(getUsersLoading());
 
   useEffect(() => {
     fetchUsers();
@@ -23,7 +28,7 @@ const Users = ({ className }) => {
         Active users
       </Heading>
       <ul className={classNames(styles.list, {})}>
-        {areUsersLoading ? (
+        {isLoading ? (
           <li className={styles.item}>
             <center>
               <LoadingSpinner />
