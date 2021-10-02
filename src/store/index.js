@@ -11,8 +11,6 @@ const initialState = combineInitialState({
   user,
 });
 
-console.log('initialState', initialState);
-
 const rootReducer = combineReducers({
   post,
   user,
