@@ -8,7 +8,7 @@ import styles from "./UserCard.module.css";
 
 const UserCard = ({ user }) => {
   return (
-    <Link to={`/profile/${user.id}`} className={styles.wrapper}>
+    <Link to={`/profile/${user.username}`} className={styles.wrapper}>
       <Avatar src={user.avatar} className={styles.avatar} alt="User avatar." />
       <Text as="p" size="m" weight="semibold" className={styles.username}>
         {user.username}
@@ -21,7 +21,6 @@ UserCard.propTypes = {
   user: PropTypes.shape({
     avatar: PropTypes.string,
     username: PropTypes.string,
-    id: PropTypes.string,
   }),
 };
 
