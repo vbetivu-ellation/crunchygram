@@ -6,12 +6,12 @@ import { Avatar, Text, Heading, LikeFilledSvg, CommentSvg } from "../common";
 
 import styles from "./ProfileHeader.module.css";
 
-const ProfileHeader = ({ avatar, username, likesCount, commentCount, id }) => {
+const ProfileHeader = ({ avatar, username, likesCount, commentCount }) => {
   return (
     <header className={styles.header}>
       <div className={styles.avatarWrapper}>
         <div className={styles.avatarSpacer}>
-          <Avatar src={avatar} className={styles.avatar} alt={id} />
+          <Avatar src={avatar} className={styles.avatar} />
         </div>
       </div>
       <div className={styles.info}>
@@ -47,7 +47,6 @@ const ProfileHeader = ({ avatar, username, likesCount, commentCount, id }) => {
 
 ProfileHeader.propTypes = {
   avatar: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
   likesCount: PropTypes.number.isRequired,
   commentCount: PropTypes.number.isRequired,
