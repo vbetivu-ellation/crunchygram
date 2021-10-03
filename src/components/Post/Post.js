@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
+import { Link } from "react-router-dom";
 
 import { Avatar, Image, Text } from "../common";
 import LikeButton from "../LikeButton";
@@ -10,6 +11,7 @@ import CommentsSection from "../CommentsSection";
 import styles from "./Post.module.css";
 
 const Post = ({
+  id,
   imageSrc,
   seriesSrc,
   seriesTitle,
@@ -21,7 +23,7 @@ const Post = ({
   const [isCommentSectionVisible, setIsCommentSectionVisible] = useState(false);
   const handleCommentsToggle = useCallback(
     () => setIsCommentSectionVisible((value) => !value),
-    [],
+    []
   );
   const handleLikeToggle = useCallback(() => {
     setIsLiked(!isLiked);
@@ -37,9 +39,9 @@ const Post = ({
           {seriesTitle}
         </Text>
       </div>
-      <div className={styles.imageWrapper}>
+      <Link to={`/post/${id}`} className={styles.imageWrapper}>
         <Image src={imageSrc} alt="" className={styles.image} />
-      </div>
+      </Link>
       <div
         className={classNames(styles.actions, {
           [styles.open]: isCommentSectionVisible,
@@ -58,6 +60,7 @@ const Post = ({
 };
 
 Post.propTypes = {
+  id: PropTypes.string.isRequired,
   imageSrc: PropTypes.string.isRequired,
   seriesSrc: PropTypes.string.isRequired,
   seriesTitle: PropTypes.string.isRequired,

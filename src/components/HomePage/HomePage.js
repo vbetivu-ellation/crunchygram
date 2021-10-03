@@ -7,7 +7,10 @@ import LoadingSpinner from "../LoadingSpinner";
 
 import styles from "./HomePage.module.css";
 import useAction from "../../hooks/useAction";
-import { fetchPostsAction, fetchPostsNextPageAction } from "../../store/actions/post";
+import {
+  fetchPostsAction,
+  fetchPostsNextPageAction,
+} from "../../store/actions/post";
 import useInfiniteScroll from "../../hooks/useInfiniteScroll";
 import { arePostsLoading, getPostList } from "../../store/selectors/post";
 import useSelector from "../../hooks/useSelector";
@@ -34,17 +37,28 @@ const HomePage = () => {
         <Users />
       </div>
       <div className={styles.posts}>
-        {data.map(({id, avatar, image, name, likesCount, commentsCount, comments}) => (
-          <Post
-            imageSrc={image}
-            seriesTitle={name}
-            seriesSrc={avatar}
-            commentsCount={commentsCount}
-            likesCount={likesCount}
-            comments={comments}
-            key={id}
-          />
-        ))}
+        {data.map(
+          ({
+            id,
+            avatar,
+            image,
+            name,
+            likesCount,
+            commentsCount,
+            comments,
+          }) => (
+            <Post
+              id={id}
+              imageSrc={image}
+              seriesTitle={name}
+              seriesSrc={avatar}
+              commentsCount={commentsCount}
+              likesCount={likesCount}
+              comments={comments}
+              key={id}
+            />
+          )
+        )}
         {isLoading && (
           <center>
             <LoadingSpinner />
