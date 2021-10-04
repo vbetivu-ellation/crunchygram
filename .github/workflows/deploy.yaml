@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       REGISTRY: ghcr.io
-      IMAGE_NAME: ileahu-ellation/crunchygram
+      IMAGE_NAME: vbetivu-ellation/crunchygram
 
     steps:
       - name: Checkout repository
