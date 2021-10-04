@@ -7,6 +7,8 @@ import { Avatar, Image, Text } from "../common";
 import LikeButton from "../LikeButton";
 import CommentsButton from "../CommentsButton";
 import CommentsSection from "../CommentsSection";
+import { toggleLikeAction } from "../../store/actions/homePage/posts";
+import useAction from "../../hooks/useAction";
 
 import styles from "./Post.module.css";
 
@@ -20,15 +22,15 @@ const Post = ({
   comments,
   isUserLiked,
 }) => {
-  const [isLiked, setIsLiked] = useState(isUserLiked);
+  const toggleLike = useAction(toggleLikeAction);
   const [isCommentSectionVisible, setIsCommentSectionVisible] = useState(false);
   const handleCommentsToggle = useCallback(
     () => setIsCommentSectionVisible((value) => !value),
     []
   );
   const handleLikeToggle = useCallback(() => {
-    setIsLiked(!isLiked);
-  }, [setIsLiked, isLiked]);
+    toggleLike(id);
+  }, [toggleLike, id]);
 
   return (
     <article className={styles.article}>
@@ -51,7 +53,7 @@ const Post = ({
         <LikeButton
           onClick={handleLikeToggle}
           count={likesCount}
-          isLiked={isLiked}
+          isLiked={isUserLiked}
         />
         <CommentsButton onClick={handleCommentsToggle} count={commentsCount} />
       </div>

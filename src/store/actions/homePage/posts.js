@@ -3,6 +3,7 @@ import {
   SET_POSTS,
   SET_POSTS_LOADING,
   SET_SEARCH_QUERY,
+  LIKE_HOME_POST,
 } from "../../actionTypes";
 import { API } from "../../../api";
 import {
@@ -65,4 +66,9 @@ export const resetSearchAction = (dispatch) => async () => {
   const data = await fetchPosts(dispatch, "")();
 
   dispatch({ type: SET_POSTS, payload: data });
+};
+
+export const toggleLikeAction = (dispatch) => (postId) => {
+  dispatch({ type: LIKE_HOME_POST, payload: postId });
+  API.togglePostLike({ postId });
 };
