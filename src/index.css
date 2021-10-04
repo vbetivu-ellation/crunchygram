@@ -255,15 +255,6 @@ body {
   overscroll-behavior: none;
 }
 
-a,
-a:visited {
-  color: var(--color-scooter-dark);
-}
-
-a:hover {
-  color: var(--color-black);
-}
-
 #root {
   min-height: 100%;
   display: grid;

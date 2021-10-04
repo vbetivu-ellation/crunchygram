@@ -6,6 +6,16 @@
   text-decoration: none;
 }
 
+.wrapper,
+.wrapper:visited {
+  color: var(--color-scooter-dark);
+}
+
+.wrapper:hover {
+  color: var(--color-black);
+}
+
+
 .avatar {
   flex: 0 0 auto;
   width: 48px;

@@ -5,15 +5,18 @@ import combineReducers from "../util/combineReducers";
 import combineInitialState from "../util/combineInitialState";
 import homePage from "./reducers/homePage";
 import postPage from "./reducers/postPage";
+import profilePage from "./reducers/profilePage";
 
 const initialState = combineInitialState({
   homePage,
   postPage,
+  profilePage,
 });
 
 const rootReducer = combineReducers({
   homePage,
   postPage,
+  profilePage,
 });
 
 const StoreContext = createContext({

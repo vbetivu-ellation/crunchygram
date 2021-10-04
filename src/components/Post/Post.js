@@ -18,8 +18,9 @@ const Post = ({
   likesCount,
   commentsCount,
   comments,
+  isUserLiked,
 }) => {
-  const [isLiked, setIsLiked] = useState(false);
+  const [isLiked, setIsLiked] = useState(isUserLiked);
   const [isCommentSectionVisible, setIsCommentSectionVisible] = useState(false);
   const handleCommentsToggle = useCallback(
     () => setIsCommentSectionVisible((value) => !value),
@@ -67,6 +68,7 @@ Post.propTypes = {
   likesCount: PropTypes.number.isRequired,
   commentsCount: PropTypes.number.isRequired,
   comments: PropTypes.array.isRequired,
+  isUserLiked: PropTypes.bool,
 };
 
 Post.defaultProps = {

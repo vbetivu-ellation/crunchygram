@@ -1,30 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import ProfileHeader from "../ProfileHeader";
 import ProfilePost from "../ProfilePost";
-// import { fetchUserAction } from "../../store/actions/homePage/users";
+import { fetchUserAction } from "../../store/actions/profilePage";
 import useSelector from "../../hooks/useSelector";
-import { getUserByUsername } from "../../store/selectors/homePage/users";
-// import useAction from "../../hooks/useAction";
+import { getUser } from "../../store/selectors/profilePage";
+import useAction from "../../hooks/useAction";
 
 import styles from "./ProfilePage.module.css";
 import LoadingSpinner from "../LoadingSpinner";
 
 const ProfilePage = () => {
   const { username } = useParams();
-  const user = useSelector(getUserByUsername(username));
-  // const fetchUser = useAction(fetchUserAction);
+  const user = useSelector(getUser());
+  const fetchUser = useAction(fetchUserAction);
   const isLoading = !user;
 
-  console.log(user);
-
-  // useEffect(() => {
-  //   fetchUser(username).catch(() => {
-  //     window.location.href = "/404";
-  //   });
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
+  useEffect(() => {
+    if (!user) {
+      fetchUser(username).catch(() => {
+        window.location.replace("/404");
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <section className={styles.section}>
@@ -43,6 +43,7 @@ const ProfilePage = () => {
             {user?.likedPosts.map((post, index) => (
               <li className={styles.postWrapper} key={index}>
                 <ProfilePost
+                  id={post.id}
                   className={styles.post}
                   src={post.image}
                   commentsCount={post.commentsCount}

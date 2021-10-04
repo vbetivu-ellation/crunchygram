@@ -17,7 +17,7 @@ const NotFound = () => (
       <Text as="p" size="xl" className={styles.description}>
         Yuzu says there's nothing to see here!
       </Text>
-      <Link to="/" className="error-text" size="m">
+      <Link to="/" className={styles.link} size="m">
         <Text
           as="span"
           size="xl"

@@ -18,3 +18,12 @@
 .description {
   margin-bottom: 20px;
 }
+
+.link,
+.link:visited {
+  color: var(--color-scooter-dark);
+}
+
+.link:hover {
+  color: var(--color-black);
+}

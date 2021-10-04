@@ -10,3 +10,6 @@ export const SET_USERS_LOADING = "SET_USERS_LOADING";
 //
 // postPage
 export const SET_POST = "SET_POST";
+//
+// profilePage
+export const SET_USER = "SET_USER";

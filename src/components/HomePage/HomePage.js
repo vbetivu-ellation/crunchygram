@@ -49,8 +49,11 @@ const HomePage = () => {
             likesCount,
             commentsCount,
             comments,
+            isUserLiked,
           }) => (
             <Post
+              key={id}
+              isUserLiked={isUserLiked}
               id={id}
               imageSrc={image}
               seriesTitle={name}
@@ -58,7 +61,6 @@ const HomePage = () => {
               commentsCount={commentsCount}
               likesCount={likesCount}
               comments={comments}
-              key={id}
             />
           )
         )}
