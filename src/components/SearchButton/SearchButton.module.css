@@ -2,7 +2,6 @@
   display: block;
   padding: 8px;
   transition: color 0.2s ease;
-  color: var(--color-orange-base);
 }
 
 .button:hover {
@@ -10,10 +9,5 @@
 }
 
 .button:active {
-  color: var(--color-orange-base);
-}
-
-.button:disabled {
-  color: var(--color-scarpa-flow);
-  pointer-events: none;
+  color: var(--color-orange-dark);
 }

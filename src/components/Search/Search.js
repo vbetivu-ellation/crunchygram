@@ -26,7 +26,7 @@ const Search = () => {
           placeholder="Search for a title..."
         />
       </div>
-      <SearchButton isDisabled={searchQuery.length < 3} />
+      <SearchButton />
     </div>
   );
 };
