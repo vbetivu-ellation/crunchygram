@@ -37,29 +37,29 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
-#  deploy:
-#    needs: publish
-#    runs-on: ubuntu-latest
-#    env:
-#      KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
-#
-#    steps:
-#      - name: Checkout repository
-#        uses: actions/checkout@v2.3.4
-#
-#      - name: 'Remove'
-#        uses: 'deliverybot/helm@master'
-#        with:
-#          chart: './chart'
-#          release: 'crgram-api'
-#          namespace: 'default'
-#          helm: 'helm3'
-#          task: 'remove'
-#
-#      - name: 'Deploy'
-#        uses: 'deliverybot/helm@master'
-#        with:
-#          chart: './chart'
-#          release: 'crgram-api'
-#          namespace: 'default'
-#          helm: 'helm3'
+  deploy:
+    needs: publish
+    runs-on: ubuntu-latest
+    env:
+      KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2.3.4
+
+      - name: 'Remove'
+        uses: 'deliverybot/helm@master'
+        with:
+          chart: './chart'
+          release: 'crgram-api'
+          namespace: 'default'
+          helm: 'helm3'
+          task: 'remove'
+
+      - name: 'Deploy'
+        uses: 'deliverybot/helm@master'
+        with:
+          chart: './chart'
+          release: 'crgram-api'
+          namespace: 'default'
+          helm: 'helm3'
