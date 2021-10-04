@@ -1,0 +1,12 @@
+replicaCount: 2
+
+image:
+  repository: ghcr.io/ileahu-ellation/crunchygram
+  tag: latest
+  pullPolicy: Always
+
+service:
+  type: LoadBalancer
+  ports:
+    - port: 8080
+      containerPort: 3000
