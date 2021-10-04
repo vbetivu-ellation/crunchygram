@@ -14,3 +14,8 @@ export const fetchMeAction = (dispatch) => async () => {
   dispatch({ type: SET_CURRENT_USER, payload: data });
   return data;
 };
+
+export const logOutAction = () => async () => {
+  await API.logout();
+  window.location.reload();
+};
