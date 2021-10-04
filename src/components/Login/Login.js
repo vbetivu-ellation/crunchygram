@@ -1,18 +1,24 @@
 import React, { useState, useCallback } from "react";
-import PropTypes from "prop-types";
 
 import { Button, Input } from "../common";
+import useAction from "../../hooks/useAction";
+import { loginUserAction } from "../../store/actions/currentUser";
 
 import styles from "./Login.module.css";
 
-const Login = ({ isAuthenticated }) => {
+const Login = () => {
   const [username, setUsername] = useState("");
+  const loginUser = useAction(loginUserAction);
   const handleChange = useCallback(
     ({ target: { value } }) => setUsername(value),
     []
   );
 
-  return isAuthenticated ? null : (
+  const login = useCallback(() => {
+    loginUser(username).then(() => window.location.assign("/"));
+  }, [username, loginUser]);
+
+  return (
     <div className={styles.overlay}>
       <div className={styles.wrapper}>
         <div className={styles.inputWrapper}>
@@ -23,16 +29,12 @@ const Login = ({ isAuthenticated }) => {
             placeholder="Type here..."
           />
         </div>
-        <Button onClick={() => {}} type="filled">
+        <Button onClick={login} type="filled">
           Submit
         </Button>
       </div>
     </div>
   );
-};
-
-Login.propTypes = {
-  isAuthenticated: PropTypes.bool,
 };
 
 export default Login;

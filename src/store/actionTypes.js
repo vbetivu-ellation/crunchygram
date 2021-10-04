@@ -13,3 +13,6 @@ export const SET_POST = "SET_POST";
 //
 // profilePage
 export const SET_USER = "SET_USER";
+//
+// currentUser
+export const SET_CURRENT_USER = "SET_CURRENT_USER";
