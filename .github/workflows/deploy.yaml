@@ -51,7 +51,7 @@ jobs:
         uses: 'deliverybot/helm@master'
         with:
           chart: './chart'
-          release: 'crgram-api'
+          release: 'crgram'
           namespace: 'default'
           helm: 'helm3'
           task: 'remove'
@@ -60,6 +60,6 @@ jobs:
         uses: 'deliverybot/helm@master'
         with:
           chart: './chart'
-          release: 'crgram-api'
+          release: 'crgram'
           namespace: 'default'
           helm: 'helm3'
