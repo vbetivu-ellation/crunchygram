@@ -6,17 +6,20 @@ import combineInitialState from "../util/combineInitialState";
 import homePage from "./reducers/homePage";
 import postPage from "./reducers/postPage";
 import profilePage from "./reducers/profilePage";
+import currentUser from "./reducers/currentUser";
 
 const initialState = combineInitialState({
   homePage,
   postPage,
   profilePage,
+  currentUser,
 });
 
 const rootReducer = combineReducers({
   homePage,
   postPage,
   profilePage,
+  currentUser,
 });
 
 const StoreContext = createContext({
@@ -24,8 +27,19 @@ const StoreContext = createContext({
   dispatch: () => {},
 });
 
-const StoreProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(rootReducer, initialState);
+const initState = (user) => (initialState) => {
+  return {
+    ...initialState,
+    currentUser: user,
+  };
+};
+
+const StoreProvider = ({ children, user }) => {
+  const [state, dispatch] = useReducer(
+    rootReducer,
+    initialState,
+    initState(user)
+  );
   const store = useMemo(() => [state, dispatch], [state]);
 
   return (
@@ -35,6 +49,7 @@ const StoreProvider = ({ children }) => {
 
 StoreProvider.propTypes = {
   children: PropTypes.node.isRequired,
+  user: PropTypes.object,
 };
 
 export { StoreContext };
