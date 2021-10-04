@@ -12,7 +12,7 @@ import { fetchUsersAction } from "../../store/actions/user";
 import useSelector from "../../hooks/useSelector";
 import { getUserList, getUsersLoading } from "../../store/selectors/user";
 
-const Users = ({className}) => {
+const Users = ({ className }) => {
   const fetchUsers = useAction(fetchUsersAction);
   const users = useSelector(getUserList());
   const isLoading = useSelector(getUsersLoading());
@@ -30,9 +30,7 @@ const Users = ({className}) => {
       <ul className={classNames(styles.list, {})}>
         {isLoading ? (
           <li className={styles.item}>
-            <center>
-              <LoadingSpinner />
-            </center>
+            <LoadingSpinner />
           </li>
         ) : (
           users.map((user, index) => (

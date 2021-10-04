@@ -59,11 +59,7 @@ const HomePage = () => {
             />
           )
         )}
-        {isLoading && (
-          <center>
-            <LoadingSpinner />
-          </center>
-        )}
+        {isLoading && <LoadingSpinner />}
       </div>
     </div>
   );
