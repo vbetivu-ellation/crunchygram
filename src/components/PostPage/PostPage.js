@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import CommentsSection from "../CommentsSection";
@@ -6,7 +6,10 @@ import { Avatar, CommentSvg, Image, Text } from "../common";
 import useAction from "../../hooks/useAction";
 import useSelector from "../../hooks/useSelector";
 import LikeButton from "../LikeButton";
-import { fetchPostAction } from "../../store/actions/postPage";
+import {
+  fetchPostAction,
+  toggleLikeAction,
+} from "../../store/actions/postPage";
 import LoadingSpinner from "../LoadingSpinner";
 import { getPost } from "../../store/selectors/postPage";
 
@@ -17,6 +20,11 @@ const PostPage = () => {
   const fetchPost = useAction(fetchPostAction);
   const post = useSelector(getPost({ id }));
   const isLoading = !post;
+
+  const toggleLike = useAction(toggleLikeAction);
+  const handleLikeClick = useCallback(() => {
+    toggleLike(id);
+  }, [id, toggleLike]);
 
   useEffect(() => {
     if (!post) {
@@ -52,7 +60,7 @@ const PostPage = () => {
             <div className={styles.actions}>
               <LikeButton
                 isLiked={post.isUserLiked}
-                onClick={() => {}}
+                onClick={handleLikeClick}
                 count={post.likesCount}
               />
               <div className={styles.info}>

@@ -12,6 +12,7 @@ export const LIKE_HOME_POST = "LIKE_HOME_POST";
 //
 // postPage
 export const SET_POST = "SET_POST";
+export const LIKE_POST = "LIKE_POST";
 //
 // profilePage
 export const SET_USER = "SET_USER";
