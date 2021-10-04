@@ -19,11 +19,10 @@ const ProfilePage = () => {
   const isLoading = !user;
 
   useEffect(() => {
-    if (!user) {
-      fetchUser(username).catch(() => {
-        window.location.replace("/404");
-      });
-    }
+    fetchUser(username).catch(() => {
+      window.location.replace("/404");
+    });
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [username]);
 
