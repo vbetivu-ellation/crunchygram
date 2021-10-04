@@ -10,6 +10,7 @@ import useAction from "../../hooks/useAction";
 
 import styles from "./ProfilePage.module.css";
 import LoadingSpinner from "../LoadingSpinner";
+import ProfileEmptyPosts from "../ProfileEmptyPosts";
 
 const ProfilePage = () => {
   const { username } = useParams();
@@ -39,19 +40,23 @@ const ProfilePage = () => {
             likesCount={user.likesCount}
             commentCount={user.commentsCount}
           />
-          <ul className={styles.grid}>
-            {user?.likedPosts.map((post, index) => (
-              <li className={styles.postWrapper} key={index}>
-                <ProfilePost
-                  id={post.id}
-                  className={styles.post}
-                  src={post.image}
-                  commentsCount={post.commentsCount}
-                  likesCount={post.likesCount}
-                />
-              </li>
-            ))}
-          </ul>
+          {user.likedPosts.length === 0 ? (
+            <ProfileEmptyPosts />
+          ) : (
+            <ul className={styles.grid}>
+              {user.likedPosts.map((post, index) => (
+                <li className={styles.postWrapper} key={index}>
+                  <ProfilePost
+                    id={post.id}
+                    className={styles.post}
+                    src={post.image}
+                    commentsCount={post.commentsCount}
+                    likesCount={post.likesCount}
+                  />
+                </li>
+              ))}
+            </ul>
+          )}
         </>
       )}
     </section>
