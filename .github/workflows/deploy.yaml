@@ -2,7 +2,7 @@ name: Build Docker image and deploy Helm chart
 
 on:
   push:
-    branches: ['deploy']
+    branches: ['solution', 'master', 'deploy']
 
 jobs:
   publish:
