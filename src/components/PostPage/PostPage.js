@@ -68,7 +68,7 @@ const PostPage = () => {
                 </Text>
               </div>
             </div>
-            <CommentsSection comments={post.comments} />
+            <CommentsSection postId={id} comments={post.comments} />
           </div>
         </article>
       )}

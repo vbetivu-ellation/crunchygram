@@ -6,7 +6,14 @@ import { SendSvg } from "../Svg";
 
 import styles from "./Textarea.module.css";
 
-const Textarea = ({ value, onChange, placeholder, className, isDisabled }) => (
+const Textarea = ({
+  onSubmit,
+  value,
+  onChange,
+  placeholder,
+  className,
+  isDisabled,
+}) => (
   <div className={classNames(styles.wrapper, className)}>
     <textarea
       className={styles.textarea}
@@ -15,13 +22,18 @@ const Textarea = ({ value, onChange, placeholder, className, isDisabled }) => (
       disabled={isDisabled}
       onChange={onChange}
     />
-    <button disabled={value.length === 0} className={styles.button}>
+    <button
+      disabled={value.length === 0}
+      className={styles.button}
+      onClick={onSubmit}
+    >
       <SendSvg />
     </button>
   </div>
 );
 
 Textarea.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string.isRequired,

@@ -59,7 +59,9 @@ const Post = ({ id }) => {
         />
         <CommentsButton onClick={handleCommentsToggle} count={commentsCount} />
       </div>
-      {isCommentSectionVisible && <CommentsSection comments={comments} />}
+      {isCommentSectionVisible && (
+        <CommentsSection postId={id} comments={comments} />
+      )}
     </article>
   );
 };

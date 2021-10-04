@@ -13,10 +13,15 @@ export const LIKE_HOME_POST = "LIKE_HOME_POST";
 // postPage
 export const ADD_POST = "ADD_POST";
 export const RESET_USER = "RESET_USER";
-export const LIKE_POST = "LIKE_POST";
 //
 // profilePage
 export const SET_USER = "SET_USER";
 //
 // currentUser
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
+//
+// like
+export const LIKE_POST = "LIKE_POST";
+//
+// comment
+export const COMMENT = "COMMENT";
