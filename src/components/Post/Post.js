@@ -7,21 +7,23 @@ import { Avatar, Image, Text } from "../common";
 import LikeButton from "../LikeButton";
 import CommentsButton from "../CommentsButton";
 import CommentsSection from "../CommentsSection";
-import { toggleLikeAction } from "../../store/actions/homePage/posts";
+import { toggleLikeAction } from "../../store/actions/like";
 import useAction from "../../hooks/useAction";
 
 import styles from "./Post.module.css";
+import useSelector from "../../hooks/useSelector";
+import { getPost } from "../../store/selectors/posts";
 
-const Post = ({
-  id,
-  imageSrc,
-  seriesSrc,
-  seriesTitle,
-  likesCount,
-  commentsCount,
-  comments,
-  isUserLiked,
-}) => {
+const Post = ({ id }) => {
+  const {
+    image,
+    avatar,
+    name,
+    likesCount,
+    commentsCount,
+    comments,
+    isUserLiked,
+  } = useSelector(getPost(id));
   const toggleLike = useAction(toggleLikeAction);
   const [isCommentSectionVisible, setIsCommentSectionVisible] = useState(false);
   const handleCommentsToggle = useCallback(
@@ -36,14 +38,14 @@ const Post = ({
     <article className={styles.article}>
       <div className={styles.topRow}>
         <div className={styles.avatarWrapper}>
-          <Avatar src={seriesSrc} alt="User avatar" />
+          <Avatar src={avatar} alt="User avatar" />
         </div>
         <Text as="p" size="l">
-          {seriesTitle}
+          {name}
         </Text>
       </div>
       <Link to={`/post/${id}`} className={styles.imageWrapper}>
-        <Image src={imageSrc} alt="" className={styles.image} />
+        <Image src={image} alt="" className={styles.image} />
       </Link>
       <div
         className={classNames(styles.actions, {
@@ -64,17 +66,6 @@ const Post = ({
 
 Post.propTypes = {
   id: PropTypes.string.isRequired,
-  imageSrc: PropTypes.string.isRequired,
-  seriesSrc: PropTypes.string.isRequired,
-  seriesTitle: PropTypes.string.isRequired,
-  likesCount: PropTypes.number.isRequired,
-  commentsCount: PropTypes.number.isRequired,
-  comments: PropTypes.array.isRequired,
-  isUserLiked: PropTypes.bool,
-};
-
-Post.defaultProps = {
-  comments: [],
 };
 
 export default Post;

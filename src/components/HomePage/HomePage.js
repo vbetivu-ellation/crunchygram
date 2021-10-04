@@ -23,7 +23,7 @@ const HomePage = () => {
   const fetchNextPage = useAction(fetchPostsNextPageAction);
   const fetchFirstPage = useAction(fetchPostsAction);
   const isLoading = useSelector(arePostsLoading());
-  const data = useSelector(getPostList());
+  const posts = useSelector(getPostList());
 
   useInfiniteScroll(fetchNextPage);
 
@@ -41,33 +41,10 @@ const HomePage = () => {
         <Users />
       </div>
       <div className={styles.posts}>
-        {!isLoading && data.length === 0 ? (
+        {!isLoading && posts.length === 0 ? (
           <HomeEmptyPosts />
         ) : (
-          data.map(
-            ({
-              id,
-              avatar,
-              image,
-              name,
-              likesCount,
-              commentsCount,
-              comments,
-              isUserLiked,
-            }) => (
-              <Post
-                key={id}
-                isUserLiked={isUserLiked}
-                id={id}
-                imageSrc={image}
-                seriesTitle={name}
-                seriesSrc={avatar}
-                commentsCount={commentsCount}
-                likesCount={likesCount}
-                comments={comments}
-              />
-            )
-          )
+          posts.map((id) => <Post key={id} id={id} />)
         )}
         {isLoading && <LoadingSpinner />}
       </div>

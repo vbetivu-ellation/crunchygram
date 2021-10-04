@@ -6,19 +6,17 @@ import { Avatar, CommentSvg, Image, Text } from "../common";
 import useAction from "../../hooks/useAction";
 import useSelector from "../../hooks/useSelector";
 import LikeButton from "../LikeButton";
-import {
-  fetchPostAction,
-  toggleLikeAction,
-} from "../../store/actions/postPage";
+import { fetchPostAction } from "../../store/actions/postPage";
+import { toggleLikeAction } from "../../store/actions/like";
 import LoadingSpinner from "../LoadingSpinner";
-import { getPost } from "../../store/selectors/postPage";
+import { getPost } from "../../store/selectors/posts";
 
 import styles from "./PostPage.module.css";
 
 const PostPage = () => {
   const { id } = useParams();
   const fetchPost = useAction(fetchPostAction);
-  const post = useSelector(getPost({ id }));
+  const post = useSelector(getPost(id));
   const isLoading = !post;
 
   const toggleLike = useAction(toggleLikeAction);
@@ -27,11 +25,9 @@ const PostPage = () => {
   }, [id, toggleLike]);
 
   useEffect(() => {
-    if (!post) {
-      fetchPost(id).catch(() => {
-        window.location.replace("/404");
-      });
-    }
+    fetchPost(id).catch(() => {
+      window.location.replace("/404");
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 

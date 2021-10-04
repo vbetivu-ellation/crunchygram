@@ -11,7 +11,7 @@ export const SET_USERS_LOADING = "SET_USERS_LOADING";
 export const LIKE_HOME_POST = "LIKE_HOME_POST";
 //
 // postPage
-export const SET_POST = "SET_POST";
+export const ADD_POST = "ADD_POST";
 export const RESET_USER = "RESET_USER";
 export const LIKE_POST = "LIKE_POST";
 //

@@ -1,7 +1,7 @@
 import createReducer from "../../../util/createReducer";
 import {
   APPEND_POSTS,
-  LIKE_HOME_POST,
+  // LIKE_HOME_POST,
   SET_POSTS,
   SET_POSTS_LOADING,
   SET_SEARCH_QUERY,
@@ -16,11 +16,11 @@ const posts = createReducer(
   {
     [SET_POSTS]: (state, { payload }) => ({
       ...state,
-      list: payload,
+      list: payload.map(({ id }) => id),
     }),
     [APPEND_POSTS]: (state, { payload }) => ({
       ...state,
-      list: [...state.list, ...payload],
+      list: [...state.list, ...payload.map(({ id }) => id)],
     }),
     [SET_POSTS_LOADING]: (state, { payload }) => ({
       ...state,
@@ -29,22 +29,6 @@ const posts = createReducer(
     [SET_SEARCH_QUERY]: (state, { payload }) => ({
       ...state,
       searchQuery: payload,
-    }),
-    [LIKE_HOME_POST]: (state, { payload }) => ({
-      ...state,
-      list: state.list.map((item) => {
-        if (item.id === payload) {
-          return {
-            ...item,
-            likesCount: item.isUserLiked
-              ? item.likesCount--
-              : item.likesCount++,
-            isUserLiked: !item.isUserLiked,
-          };
-        } else {
-          return item;
-        }
-      }),
     }),
   }
 );

@@ -4,22 +4,22 @@ import PropTypes from "prop-types";
 import combineReducers from "../util/combineReducers";
 import combineInitialState from "../util/combineInitialState";
 import homePage from "./reducers/homePage";
-import postPage from "./reducers/postPage";
 import profilePage from "./reducers/profilePage";
 import currentUser from "./reducers/currentUser";
+import posts from "./reducers/posts";
 
 const initialState = combineInitialState({
   homePage,
-  postPage,
   profilePage,
   currentUser,
+  posts,
 });
 
 const rootReducer = combineReducers({
   homePage,
-  postPage,
   profilePage,
   currentUser,
+  posts,
 });
 
 const StoreContext = createContext({
