@@ -9,4 +9,4 @@ service:
   type: LoadBalancer
   ports:
     - port: 8080
-      containerPort: 3000
+      containerPort: 80
