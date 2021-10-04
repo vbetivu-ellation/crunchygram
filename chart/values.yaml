@@ -7,6 +7,5 @@ image:
 
 service:
   type: LoadBalancer
-  ports:
-    - port: 8080
-      containerPort: 80
+  port: 8080
+  containerPort: 80
