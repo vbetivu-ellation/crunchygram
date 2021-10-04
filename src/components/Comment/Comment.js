@@ -8,15 +8,15 @@ import styles from "./Comment.module.css";
 import useSelector from "../../hooks/useSelector";
 import { getUserByUsername } from "../../store/selectors/user";
 
-const Comment = ({username, comment}) => {
-  const {avatar} = useSelector(getUserByUsername(username));
+const Comment = ({ username, comment }) => {
+  const { avatar } = useSelector(getUserByUsername(username));
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       <Link to={`/profile/${username}`} className={styles.author}>
-          <span className={styles.avatar}>
-            <Avatar src={avatar} alt="User avatar" />
-          </span>
+        <span className={styles.avatar}>
+          <Avatar src={avatar} alt="User avatar" />
+        </span>
         <Text as="span" size="m" weight="semibold">
           {username}:{" "}
         </Text>
