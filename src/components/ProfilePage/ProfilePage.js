@@ -14,7 +14,7 @@ import ProfileEmptyPosts from "../ProfileEmptyPosts";
 
 const ProfilePage = () => {
   const { username } = useParams();
-  const user = useSelector(getUser());
+  const user = useSelector(getUser({ username }));
   const fetchUser = useAction(fetchUserAction);
   const isLoading = !user;
 
@@ -25,7 +25,7 @@ const ProfilePage = () => {
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [username]);
 
   return (
     <section className={styles.section}>

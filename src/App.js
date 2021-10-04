@@ -13,11 +13,10 @@ import StoreProvider from "./store";
 import Login from "./components/Login/Login";
 
 function App({ user }) {
-  console.log(user);
   return (
     <StoreProvider user={user}>
       <BrowserRouter>
-        {!!user && <Nav />}
+        <Nav />
         <div className={styles.content}>
           <Switch>
             <Route path="/profile/:username" exact>

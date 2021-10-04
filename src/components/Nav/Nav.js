@@ -20,28 +20,30 @@ const Nav = () => {
         <Link to="/">
           <Logo />
         </Link>
-        <div className={styles.rightActions}>
-          <Link
-            to={`/profile/${currentUser.username}`}
-            className={styles.profile}
-          >
-            <Text
-              as="span"
-              size="m"
-              className={styles.username}
-              weight="semibold"
+        {!!currentUser && (
+          <div className={styles.rightActions}>
+            <Link
+              to={`/profile/${currentUser.username}`}
+              className={styles.profile}
             >
-              {currentUser.username}
-            </Text>
+              <Text
+                as="span"
+                size="m"
+                className={styles.username}
+                weight="semibold"
+              >
+                {currentUser.username}
+              </Text>
 
-            <span className={styles.avatar}>
-              <Avatar src={currentUser.avatar} alt="User avatar" />
-            </span>
-          </Link>
-          <button onClick={logout}>
-            <SignOutSvg />
-          </button>
-        </div>
+              <span className={styles.avatar}>
+                <Avatar src={currentUser.avatar} alt="User avatar" />
+              </span>
+            </Link>
+            <button onClick={logout}>
+              <SignOutSvg />
+            </button>
+          </div>
+        )}
       </div>
     </nav>
   );

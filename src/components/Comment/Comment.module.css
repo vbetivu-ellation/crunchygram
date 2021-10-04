@@ -8,6 +8,16 @@
   margin-right: 4px;
 }
 
+.author,
+.author:visited {
+  color: var(--color-scooter-dark);
+}
+
+.author:hover {
+  color: var(--color-black);
+}
+
+
 .avatar {
   display: block;
   position: absolute;

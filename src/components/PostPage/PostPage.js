@@ -15,7 +15,7 @@ import styles from "./PostPage.module.css";
 const PostPage = () => {
   const { id } = useParams();
   const fetchPost = useAction(fetchPostAction);
-  const post = useSelector(getPost());
+  const post = useSelector(getPost({ id }));
   const isLoading = !post;
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const PostPage = () => {
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [id]);
 
   return (
     <div className={styles.post}>

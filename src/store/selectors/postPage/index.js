@@ -1,1 +1,4 @@
-export const getPost = () => (state) => state.postPage;
+export const getPost =
+  ({ id }) =>
+  (state) =>
+    state.postPage?.id === id ? state.postPage : null;
