@@ -5,12 +5,8 @@ import { Link } from "react-router-dom";
 import { Avatar, Text } from "../common";
 
 import styles from "./Comment.module.css";
-import useSelector from "../../hooks/useSelector";
-import { getUserByUsername } from "../../store/selectors/user";
 
-const Comment = ({ username, comment }) => {
-  const { avatar } = useSelector(getUserByUsername(username));
-
+const Comment = ({ username, comment, avatar }) => {
   return (
     <div className={styles.wrapper}>
       <Link to={`/profile/${username}`} className={styles.author}>
@@ -30,6 +26,7 @@ const Comment = ({ username, comment }) => {
 
 Comment.propTypes = {
   username: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
   comment: PropTypes.string.isRequired,
 };
 

@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 import { SearchSvg } from "../common";
 import styles from "./SearchButton.module.css";
 import useAction from "../../hooks/useAction";
-import { fetchPostsAction } from "../../store/actions/post";
+import { fetchPostsAction } from "../../store/actions/homePage/posts";
 
-const SearchButton = ({isDisabled}) => {
+const SearchButton = ({ isDisabled }) => {
   const fetchFirstPage = useAction(fetchPostsAction);
 
   return (

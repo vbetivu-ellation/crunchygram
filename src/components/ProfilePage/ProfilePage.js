@@ -1,47 +1,58 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
 import ProfileHeader from "../ProfileHeader";
 import ProfilePost from "../ProfilePost";
+// import { fetchUserAction } from "../../store/actions/homePage/users";
+import useSelector from "../../hooks/useSelector";
+import { getUserByUsername } from "../../store/selectors/homePage/users";
+// import useAction from "../../hooks/useAction";
 
 import styles from "./ProfilePage.module.css";
-
-const likedPost = {
-  imageSrc:
-    "https://beta.crunchyroll.com/imgsrv/display/thumbnail/1200x675/catalog/crunchyroll/4fbfedc219a7ef7cf2974e2104ad880d.jpg",
-  count: 25,
-};
-
-const user = {
-  id: 3,
-  avatar:
-    "https://1.bp.blogspot.com/-q7n4nU2bu7s/YKuBM-lttXI/AAAAAAAARrA/racmI8wVkZ0ayTxqrbE0sVy3q-VxykJLwCLcBGAsYHQ/s400/black-hair-girl-poto-in-black-brown-T-shart.jpg",
-  username: "Diana",
-  likesCount: 55,
-  commentCount: 85,
-};
+import LoadingSpinner from "../LoadingSpinner";
 
 const ProfilePage = () => {
+  const { username } = useParams();
+  const user = useSelector(getUserByUsername(username));
+  // const fetchUser = useAction(fetchUserAction);
+  const isLoading = !user;
+
+  console.log(user);
+
+  // useEffect(() => {
+  //   fetchUser(username).catch(() => {
+  //     window.location.href = "/404";
+  //   });
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
+
   return (
     <section className={styles.section}>
-      <ProfileHeader
-        id={user.id}
-        avatar={user.avatar}
-        username={user.username}
-        likesCount={user.likesCount}
-        commentCount={user.commentCount}
-      />
-      <div className={styles.grid}>
-        {new Array(23).fill().map((_, index) => (
-          <div className={styles.postWrapper} key={index}>
-            <ProfilePost
-              className={styles.post}
-              src={likedPost.imageSrc}
-              commentsCount={likedPost.count}
-              likesCount={likedPost.count}
-            />
-          </div>
-        ))}
-      </div>
+      {isLoading ? (
+        <LoadingSpinner />
+      ) : (
+        <>
+          <ProfileHeader
+            id={user.id}
+            avatar={user.avatar}
+            username={user.username}
+            likesCount={user.likesCount}
+            commentCount={user.commentsCount}
+          />
+          <ul className={styles.grid}>
+            {user?.likedPosts.map((post, index) => (
+              <li className={styles.postWrapper} key={index}>
+                <ProfilePost
+                  className={styles.post}
+                  src={post.image}
+                  commentsCount={post.commentsCount}
+                  likesCount={post.likesCount}
+                />
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
     </section>
   );
 };

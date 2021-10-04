@@ -10,9 +10,12 @@ import useAction from "../../hooks/useAction";
 import {
   fetchPostsAction,
   fetchPostsNextPageAction,
-} from "../../store/actions/post";
+} from "../../store/actions/homePage/posts";
 import useInfiniteScroll from "../../hooks/useInfiniteScroll";
-import { arePostsLoading, getPostList } from "../../store/selectors/post";
+import {
+  arePostsLoading,
+  getPostList,
+} from "../../store/selectors/homePage/posts";
 import useSelector from "../../hooks/useSelector";
 
 const HomePage = () => {

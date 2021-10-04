@@ -8,9 +8,12 @@ import LoadingSpinner from "../LoadingSpinner";
 
 import styles from "./Users.module.css";
 import useAction from "../../hooks/useAction";
-import { fetchUsersAction } from "../../store/actions/user";
+import { fetchUsersAction } from "../../store/actions/homePage/users";
 import useSelector from "../../hooks/useSelector";
-import { getUserList, getUsersLoading } from "../../store/selectors/user";
+import {
+  getUserList,
+  getUsersLoading,
+} from "../../store/selectors/homePage/users";
 
 const Users = ({ className }) => {
   const fetchUsers = useAction(fetchUsersAction);

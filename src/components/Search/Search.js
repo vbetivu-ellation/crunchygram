@@ -5,15 +5,15 @@ import SearchButton from "../SearchButton";
 import styles from "./Search.module.css";
 import useSelector from "../../hooks/useSelector";
 import useAction from "../../hooks/useAction";
-import { getSearchQuery } from "../../store/selectors/post";
-import { setSearchQueryAction } from "../../store/actions/post";
+import { getSearchQuery } from "../../store/selectors/homePage/posts";
+import { setSearchQueryAction } from "../../store/actions/homePage/posts";
 
 const Search = () => {
   const searchQuery = useSelector(getSearchQuery());
   const setSearchQuery = useAction(setSearchQueryAction);
   const handleChange = useCallback(
-    ({target: {value}}) => setSearchQuery(value),
-    [setSearchQuery],
+    ({ target: { value } }) => setSearchQuery(value),
+    [setSearchQuery]
   );
 
   return (

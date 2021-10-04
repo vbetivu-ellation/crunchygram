@@ -17,7 +17,7 @@ function App() {
         <Nav />
         <div className={styles.content}>
           <Switch>
-            <Route path="/profile/:id" exact>
+            <Route path="/profile/:username" exact>
               <ProfilePage />
             </Route>
             <Route path="/post/:id" exact>

@@ -1,4 +1,4 @@
-import { axiosInstance } from '.';
+import { axiosInstance } from ".";
 
 /**
  * Post type
@@ -15,33 +15,37 @@ import { axiosInstance } from '.';
 /**
  * @returns {Promise<array<Post>>}
  */
-const getPosts = ({
-  start = 0,
-  limit = 10,
-  search = '',
-} = {}) => axiosInstance.get('/post', {
-  params: { limit, start, search },
-}).then(({ data }) => data);
+const getPosts = ({ start = 0, limit = 10, search = "" } = {}) =>
+  axiosInstance
+    .get("/post", {
+      params: { limit, start, search },
+    })
+    .then(({ data }) => data);
 
 /**
  * @returns {Promise<array<Post>>}
  */
-const getMyLikedPosts = ({
-  start = 0,
-  limit = 10,
-} = {}) => axiosInstance.get('/post/liked', {
-  params: { limit, start },
-}).then(({ data }) => data);
+const getMyLikedPosts = ({ start = 0, limit = 10 } = {}) =>
+  axiosInstance
+    .get("/post/liked", {
+      params: { limit, start },
+    })
+    .then(({ data }) => data);
 
 /**
  * @returns {Promise<array<Post>>}
  */
-const getPostsLikedByUsername = ({
-  username,
-  start = 0,
-  limit = 10,
-} = {}) => axiosInstance.get(`/post/liked/${username}`, {
-  params: { limit, start },
-}).then(({ data }) => data);
+const getPostsLikedByUsername = ({ username, start = 0, limit = 10 } = {}) =>
+  axiosInstance
+    .get(`/post/liked/${username}`, {
+      params: { limit, start },
+    })
+    .then(({ data }) => data);
 
-export { getPosts, getMyLikedPosts, getPostsLikedByUsername };
+/**
+ * @returns {Promise<Post>}
+ */
+const getPost = ({ id }) =>
+  axiosInstance.get(`/post/${id}`).then(({ data }) => data);
+
+export { getPosts, getMyLikedPosts, getPostsLikedByUsername, getPost };
