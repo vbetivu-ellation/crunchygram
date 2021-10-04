@@ -15,10 +15,8 @@ const setPostsLoading = (dispatch) => (payload) =>
   dispatch({ type: SET_POSTS_LOADING, payload });
 
 const fetchPosts =
-  (dispatch, state) =>
+  (dispatch, search) =>
   async ({ start = 0 } = {}) => {
-    const search = getSearchQuery()(state);
-
     setPostsLoading(dispatch)(true);
 
     const data = await API.getPosts({ start, search });
@@ -32,7 +30,7 @@ export const fetchPostsAction = (dispatch, state) => async () => {
   // reset posts list
   dispatch({ type: SET_POSTS, payload: [] });
 
-  const data = await fetchPosts(dispatch, state)();
+  const data = await fetchPosts(dispatch, getSearchQuery()(state))();
 
   dispatch({ type: SET_POSTS, payload: data });
 };
@@ -43,7 +41,7 @@ export const fetchPostsNextPageAction = (dispatch, state) => async () => {
   }
 
   const start = getPostList()(state).length;
-  const data = await fetchPosts(dispatch, state)({ start });
+  const data = await fetchPosts(dispatch, getSearchQuery()(state))({ start });
 
   dispatch({
     type: APPEND_POSTS,
@@ -51,8 +49,20 @@ export const fetchPostsNextPageAction = (dispatch, state) => async () => {
   });
 };
 
-export const setSearchQueryAction = (dispatch) => (payload) =>
+export const setSearchQueryAction = (dispatch) => (payload) => {
   dispatch({
     type: SET_SEARCH_QUERY,
     payload,
   });
+};
+
+export const resetSearchAction = (dispatch) => async () => {
+  dispatch({
+    type: SET_SEARCH_QUERY,
+    payload: "",
+  });
+
+  const data = await fetchPosts(dispatch, "")();
+
+  dispatch({ type: SET_POSTS, payload: data });
+};

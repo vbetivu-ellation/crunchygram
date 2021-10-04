@@ -17,6 +17,7 @@ import {
   getPostList,
 } from "../../store/selectors/homePage/posts";
 import useSelector from "../../hooks/useSelector";
+import HomeEmptyPosts from "../HomeEmptyPosts";
 
 const HomePage = () => {
   const fetchNextPage = useAction(fetchPostsNextPageAction);
@@ -40,28 +41,32 @@ const HomePage = () => {
         <Users />
       </div>
       <div className={styles.posts}>
-        {data.map(
-          ({
-            id,
-            avatar,
-            image,
-            name,
-            likesCount,
-            commentsCount,
-            comments,
-            isUserLiked,
-          }) => (
-            <Post
-              key={id}
-              isUserLiked={isUserLiked}
-              id={id}
-              imageSrc={image}
-              seriesTitle={name}
-              seriesSrc={avatar}
-              commentsCount={commentsCount}
-              likesCount={likesCount}
-              comments={comments}
-            />
+        {!isLoading && data.length === 0 ? (
+          <HomeEmptyPosts />
+        ) : (
+          data.map(
+            ({
+              id,
+              avatar,
+              image,
+              name,
+              likesCount,
+              commentsCount,
+              comments,
+              isUserLiked,
+            }) => (
+              <Post
+                key={id}
+                isUserLiked={isUserLiked}
+                id={id}
+                imageSrc={image}
+                seriesTitle={name}
+                seriesSrc={avatar}
+                commentsCount={commentsCount}
+                likesCount={likesCount}
+                comments={comments}
+              />
+            )
           )
         )}
         {isLoading && <LoadingSpinner />}
