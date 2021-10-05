@@ -9,7 +9,6 @@ const SpinnerSvg = ({ className }) => (
     className={classNames(styles.svg, className)}
     xmlns="http://www.w3.org/2000/svg"
     role="img"
-    title="loader"
     viewBox="0 0 100 100"
   >
     <path

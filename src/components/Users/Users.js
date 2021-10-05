@@ -28,7 +28,7 @@ const Users = ({ className }) => {
   return (
     <div className={classNames(styles.wrapper, className)}>
       <Heading as="h3" size="xs" className={styles.title}>
-        Active users
+        Available users
       </Heading>
       <ul className={classNames(styles.list, {})}>
         {isLoading ? (
