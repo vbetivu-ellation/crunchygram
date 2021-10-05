@@ -255,6 +255,10 @@ body {
   overscroll-behavior: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 #root {
   min-height: 100%;
   display: grid;
