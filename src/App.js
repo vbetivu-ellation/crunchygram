@@ -4,9 +4,7 @@ import StoreProvider from "./store";
 function App() {
   return (
     <StoreProvider>
-      <div className={styles.app}>
-        <header className={styles.header}></header>
-      </div>
+      <div className={styles.app}></div>
     </StoreProvider>
   );
 }
