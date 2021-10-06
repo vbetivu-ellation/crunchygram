@@ -39,7 +39,7 @@ const Nav = () => {
                 <Avatar src={currentUser.avatar} alt="User avatar" />
               </span>
             </Link>
-            <button onClick={logout}>
+            <button onClick={logout} className={styles.logout}>
               <SignOutSvg />
             </button>
           </div>

@@ -24,7 +24,7 @@ const NotFound = () => (
           weight="semibold"
           className={styles.description}
         >
-          Take me HOME!
+          TAKE ME HOME!
         </Text>
       </Link>
     </div>

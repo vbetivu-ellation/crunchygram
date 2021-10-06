@@ -24,7 +24,7 @@
 .profile {
   display: flex;
   align-items: center;
-  margin-right: 20px;
+  margin-right: 8px;
   text-decoration: none;
 }
 
@@ -40,6 +40,10 @@
 }
 .rightActions {
   display: flex;
+}
+
+.logout {
+  padding: 8px;
 }
 
 @media (min-width: 578px) {
