@@ -2,6 +2,7 @@
   display: block;
   padding: 8px;
   transition: color 0.2s ease;
+  color:var(--color-silver-chalice);
 }
 
 .button:hover {

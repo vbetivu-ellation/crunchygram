@@ -18,15 +18,13 @@ const Search = () => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.inputWrapper}>
-        <input
-          className={styles.input}
-          value={searchQuery}
-          onChange={handleChange}
-          placeholder="Search for a title..."
-        />
-      </div>
-      <SearchButton />
+      <input
+        className={styles.input}
+        value={searchQuery}
+        onChange={handleChange}
+        placeholder="Search for a title..."
+      />
+      <SearchButton className={styles.button} />
     </div>
   );
 };

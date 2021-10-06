@@ -18,7 +18,7 @@
   font-size: 18px;
   line-height: 26px;
   color: currentColor;
-  border-bottom: 2px solid var(--color-scarpa-flow);
+  border-bottom: 2px solid var(--color-silver);
   transition: border-color 0.2s ease;
 }
 
