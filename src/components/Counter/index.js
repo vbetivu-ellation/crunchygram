@@ -1,3 +1,3 @@
-import Counter from "./Counter";
 
-export default Counter;
+import Footer from "./Footer"
+export default Footer;
