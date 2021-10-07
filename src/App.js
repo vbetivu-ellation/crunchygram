@@ -3,6 +3,7 @@ import styles from "./App.module.css";
 import { Text } from "./components/common";
 import StoreProvider from "./store";
 import Counter from "./components/Counter";
+import LikeSvg from "./components/like_svg";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           >
             Learn React
           </a>
+          <LikeSvg />
         </header>
       </div>
     </StoreProvider>
