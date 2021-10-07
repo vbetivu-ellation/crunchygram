@@ -3,6 +3,7 @@ import React from "react";
 const SearchSVG = () => {
   return (
     <svg
+      className={SearchSVG}
       width="24px"
       height="24px"
       xmlns="http://www.w3.org/1999/xhtml"
