@@ -3,8 +3,8 @@ import React from "react";
 const FilledLikeSvg = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="50px"
-    height="50px"
+    width="24px"
+    height="24px"
     viewbox="0 0 24 24"
     role="img"
   >
