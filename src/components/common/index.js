@@ -1,3 +1,3 @@
 import Text from "./Text";
-
-export { Text };
+import FilledLikeSvg from "./FilledLikeSvg";
+export { Text, FilledLikeSvg};
