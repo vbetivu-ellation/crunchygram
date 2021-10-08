@@ -1,3 +1,3 @@
 import Text from "./Text";
-
-export { Text };
+import SvgSpinner from "./SvgSpinner";
+export { Text, SvgSpinner };
