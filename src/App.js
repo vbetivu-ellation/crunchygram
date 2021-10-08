@@ -4,6 +4,7 @@ import { Text } from "./components/common";
 import StoreProvider from "./store";
 import Counter from "./components/Counter";
 
+
 function App() {
   return (
     <StoreProvider>
