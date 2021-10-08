@@ -3,7 +3,7 @@ import styles from "./App.module.css";
 import { Text } from "./components/common";
 import StoreProvider from "./store";
 import Counter from "./components/Counter";
-
+import {Like} from "./components/Like"
 
 function App() {
   return (
@@ -11,7 +11,8 @@ function App() {
       <div className={styles.app}>
         <header className={styles.header}>
           <img src={logo} className={styles.logo} alt="logo" />
-          <Counter />
+          <Counter /> 
+          <Like />
           <Text as="p" size="xl" weight="bold">
             Edit <code>src/App.js</code> and save to reload.
           </Text>

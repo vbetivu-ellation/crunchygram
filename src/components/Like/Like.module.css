@@ -1,0 +1,8 @@
+.like{
+    color: grey;
+    cursor: pointer;
+  }
+  .like:hover{
+    color: teal;
+  }
+  
