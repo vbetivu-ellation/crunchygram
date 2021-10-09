@@ -5,4 +5,3 @@ import LogoutSvg from "./LogoutSvg";
 import { SearchSVG } from "./SVG";
 
 export { Text, LikeSvg, CommentSvg, LogoutSvg, SearchSVG };
-
