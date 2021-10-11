@@ -6,6 +6,7 @@ import LogoutSvg from "./LogoutSvg";
 import { SearchSVG } from "./SVG";
 import Avatar from "./Avatar";
 import Image from "./Image";
+import FilledLikeSvg from "./FilledLikeSvg";
 
 export {
   Text,
@@ -16,4 +17,5 @@ export {
   Image,
   Avatar,
   SpinnerSvg,
+  FilledLikeSvg,
 };
