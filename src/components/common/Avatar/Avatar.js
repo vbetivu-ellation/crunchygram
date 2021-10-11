@@ -1,12 +1,15 @@
+import React from "react";
+import PropTypes from "prop-types";
+
 import styles from "./Avatar.module.css";
 
- // Avatar Component
- function Avatar() {
-  
-   return(
-     <img src="https://static.pexels.com/photos/324658/pexels-photo-324658.jpeg" alt="profile pic" className={styles.Avatar}/>
-   );
- }
+const Avatar = ({ src, alt }) => (
+  <img src={src} alt={alt} className={styles.avatar} />
+);
 
- export default Avatar;
+Avatar.propTypes = {
+  src: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+};
 
+export default Avatar;
