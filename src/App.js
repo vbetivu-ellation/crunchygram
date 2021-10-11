@@ -1,28 +1,28 @@
-import logo from "./logo.svg";
-import styles from "./App.module.css";
-import { Text } from "./components/common";
 import StoreProvider from "./store";
-import Counter from "./components/Counter";
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const App = () => (
   <StoreProvider>
-    <div className={styles.app}>
-      <header className={styles.header}>
-        <img src={logo} className={styles.logo} alt="logo" />
-        <Counter />
-        <Text as="p" size="xl" weight="bold">
-          Edit <code>src/App.js</code> and save to reload.
-        </Text>
-        <a
-          className={styles.link}
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/" exact>
+          Home
+        </Route>
+        <Route path="/post/:id" exact>
+          id
+        </Route>
+        <Route path="/profile/:username" exact>
+          Profile
+        </Route>
+        <Route path="/login" exact>
+          Login
+        </Route>
+        <Route path="*" exact>
+          Page not found
+        </Route>
+      </Switch>
+    </Router>
   </StoreProvider>
 );
 
