@@ -1,6 +1,6 @@
 import React from "react";
 
-const SvgSpinner = () => (
+const SpinnerSvg = () => (
   <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 100 100">
     <path
       opacity="0.2"
@@ -10,4 +10,4 @@ const SvgSpinner = () => (
   </svg>
 );
 
-export default SvgSpinner;
+export default SpinnerSvg;
