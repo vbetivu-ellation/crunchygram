@@ -1,4 +1,5 @@
 import React from "react";
+
 const SvgSpinner = () => (
   <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 100 100">
     <path
@@ -8,4 +9,5 @@ const SvgSpinner = () => (
     <path d="M69.443,16.317,74.978,6.73A49.707,49.707,0,0,0,50,0h0V11.08h0A38.736,38.736,0,0,1,69.443,16.317Z" />
   </svg>
 );
+
 export default SvgSpinner;
