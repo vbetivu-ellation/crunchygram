@@ -1,4 +1,4 @@
-import Footer from "./components/Counter";
+import Footer from "./components/common/Footer";
 import Logo from "./components/common/Logo";
 function App() {
   return (
