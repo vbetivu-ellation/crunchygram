@@ -1,0 +1,10 @@
+.UserCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Avatar {
+  width: 50px;
+  height: 50px;
+  margin-left: 10px;
+}
