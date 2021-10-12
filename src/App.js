@@ -3,15 +3,10 @@ import styles from "./App.module.css";
 
 import StoreProvider from "./store";
 import Counter from "./components/Counter";
-import Searchbutton from "./components/Searchbutton"
-
-
+import Searchbutton from "./components/Searchbutton";
 
 function App() {
   return (
-    
-    
-
     <StoreProvider>
       <div className={styles.app}>
         <header className={styles.header}>
@@ -29,14 +24,10 @@ function App() {
             Learn React
           </a>
         </header>
-        <Searchbutton/>
+        <Searchbutton />
       </div>
     </StoreProvider>
   );
 }
 
-
 export default App;
-
-
-
