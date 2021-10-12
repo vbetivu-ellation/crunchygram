@@ -2,15 +2,9 @@ import propTypes from "prop-types";
 import React from "react";
 import styles from "./Input.module.css";
 import classNames from "classnames";
-class Input extends React.Component {
-    
-  
-  render() {
-    const {value, placeholder, isDisabled, handleChange, className} = this.props;
 
-
-  
-    return (
+function Input ({value, placeholder, isDisabled, handleChange, className}) {
+  return (
       <div>
         <form>
           <label>
@@ -27,12 +21,12 @@ class Input extends React.Component {
       </div>
     );
   }
-}
+
 Input.propTypes = {
-    value: propTypes.string,
+    value: propTypes.string.isRequired,
     placeholder: propTypes.string,
     isDisabled: propTypes.bool,
-    handleChange: propTypes.func,
+    handleChange: propTypes.func.isRequired,
     className:propTypes.string
 
 }
