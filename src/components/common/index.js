@@ -6,9 +6,10 @@ import LogoutSvg from "./LogoutSvg";
 import { SearchSVG } from "./SVG";
 import Avatar from "./Avatar";
 import Image from "./Image";
-import Heading from "./Heading"
- 
-export {
+import Heading from "./Heading" 
+import FilledLikeSvg from "./FilledLikeSvg";
+
+ export {
   Text,
   LikeSvg,
   CommentSvg,
@@ -17,6 +18,7 @@ export {
   Image,
   Avatar,
   SpinnerSvg,
-  Heading
-};
+  Heading,
+  FilledLikeSvg,
+ };
  
