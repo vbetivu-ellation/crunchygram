@@ -1,5 +1,5 @@
 import Text from "./Text";
-import SpinnerSvg from "./SpinnerSvg";
+import SpinnerSvg  from "./SpinnerSvg";
 import CommentSvg from "./CommentSvg";
 import LikeSvg from "./LikeSvg";
 
@@ -9,8 +9,9 @@ import Avatar from "./Avatar";
 import Image from "./Image";
 import Heading from "./Heading";
 import FilledLikeSvg from "./FilledLikeSvg";
-
+import EmptyPosts from "./EmptyPosts";
 import Searchbutton from "../Searchbutton";
+
 export {
   Text,
   LikeSvg,
@@ -23,4 +24,5 @@ export {
   FilledLikeSvg,
   Heading,
   SpinnerSvg,
+  EmptyPosts,
 };
