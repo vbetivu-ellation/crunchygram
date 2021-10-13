@@ -1,16 +1,18 @@
 .large{
-    display: block;
-  }
-  .small{
+    height: 36px;
     display: none;
   }
+  .small{
+    height: 36px;
+    display: block;
+  }
   
-  @media (max-width: 568px) {
+  @media (min-width: 578px) {
     .small {
-      display: block;
+      display: none;
     }
   
     .large {
-      display: none;
+      display: block;
     }
   }
