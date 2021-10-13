@@ -1,0 +1,10 @@
+.Inputstyle {
+    width: 25%;
+    padding: 5px 5px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid rgb(255, 154, 22);
+    outline: none;
+  }
+  

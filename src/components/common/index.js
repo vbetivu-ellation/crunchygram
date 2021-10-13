@@ -5,6 +5,8 @@ import LikeSvg from "./LikeSvg";
 
 import LogoutSvg from "./LogoutSvg";
 import { SearchSVG } from "./SVG";
+import Input from "./Input"
+
 import Avatar from "./Avatar";
 import Image from "./Image";
 import Heading from "./Heading";
@@ -26,3 +28,4 @@ export {
   SpinnerSvg,
   EmptyPosts,
 };
+
