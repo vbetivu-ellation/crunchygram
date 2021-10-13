@@ -1,3 +1,3 @@
-import Image from ".";
+import Image from "./Image";
 
 export default Image;
