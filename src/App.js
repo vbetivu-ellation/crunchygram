@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import StoreProvider from "./store";
+import Footer from "./components/Footer";
 
 const App = () => (
   <StoreProvider>
@@ -23,6 +24,7 @@ const App = () => (
         </Route>
       </Switch>
     </Router>
+    <Footer/>
   </StoreProvider>
 );
 
