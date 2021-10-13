@@ -1,3 +1,3 @@
-import CommentSvg from ".";
+import CommentSvg from "./CommentSvg";
 
 export default CommentSvg;
