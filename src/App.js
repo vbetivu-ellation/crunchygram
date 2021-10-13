@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import StoreProvider from "./store";
-import ProfileHeader from "./components/ProfileHeader";
 
 const App = () => (
   <StoreProvider>
@@ -9,8 +8,6 @@ const App = () => (
       <Switch>
         <Route path="/" exact>
           Home
-          <ProfileHeader username = "Mihaela" avatar = "https://static.crunchyroll.com/assets/avatar/170x170/1037-tokyo-revengers-mikey.png"
-          likescount={3} commentscount={3} ></ProfileHeader>
         </Route>
         <Route path="/post/:id" exact>
           id
