@@ -1,0 +1,11 @@
+.Iconstyle{
+    width: 16px;
+    height: 16px;
+    color: #9c9c9c;
+}
+.Iconstyle:hover svg{
+    fill: #636363;
+}
+.Iconstyle:active svg{
+    fill: #3d3d3d;
+}

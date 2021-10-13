@@ -1,0 +1,74 @@
+.heading {
+  font-weight: 400;
+}
+.semibold {
+  font-weight: 600;
+}
+.bold {
+  font-weight: 800;
+}
+.xxs {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 26px;
+}
+.xs {
+  font-size: 20px;
+  line-height: 26px;
+}
+.s {
+  font-size: 20px;
+  line-height: 26px;
+}
+.m {
+  font-size: 22px;
+  line-height: 26px;
+}
+.l {
+  font-size: 24px;
+  line-height: 28px;
+}
+.xl {
+  font-size: 28px;
+  line-height: 36px;
+}
+@media (min-width: 568px) {
+  .xs {
+    font-size: 22px;
+    line-height: 28px;
+  }
+  .s {
+    font-size: 22px;
+    line-height: 28px;
+  }
+  .m {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .l {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  .xl {
+    font-size: 34px;
+    line-height: 44px;
+  }
+}
+@media (min-width: 800px) {
+  .s {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .m {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  .l {
+    font-size: 34px;
+    line-height: 44px;
+  }
+  .xl {
+    font-size: 54px;
+    line-height: 64px;
+  }
+}
