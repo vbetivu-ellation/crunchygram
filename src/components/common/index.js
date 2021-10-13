@@ -22,4 +22,5 @@ export {
   Searchbutton,
   FilledLikeSvg,
   Heading,
+  SpinnerSvg,
 };
