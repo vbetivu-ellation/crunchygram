@@ -14,7 +14,7 @@ function Input ({value, placeholder, isDisabled, handleChange, className}) {
               value={value}
               placeholder={placeholder}
               onChange={handleChange}
-              isDisabled={isDisabled}
+              disabled={isDisabled}
             />
           </label>
         </form>
