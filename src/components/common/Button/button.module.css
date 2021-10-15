@@ -1,0 +1,37 @@
+.button {
+  color: orange;
+  display: block;
+  width: 100%;
+  padding: 0 16px;
+  height: 40px;
+  text-transform: uppercase;
+  font-size: 14px;
+  transition: color 0.2s ease, background-color 0.2s ease, outline 0.2s ease;
+  border-radius: 2px;
+  min-width: 120px;
+}
+.button:hover {
+  color: orangered;
+}
+.button:active {
+  color: orangered;
+}
+.button:disabled {
+  color: gray;
+  pointer-events: none;
+}
+.filled {
+  color: darkgray;
+  background-color: orange;
+}
+.outlined {
+  background-color: white;
+  color: aliceblue;
+  outline: orange solid 2px;
+  outline-offset: -2px;
+}
+@media (min-width: 578px) {
+  .button {
+    width: auto;
+  }
+}
