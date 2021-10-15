@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import StoreProvider from "./store";
-
 const App = () => (
   <StoreProvider>
     <Router>
