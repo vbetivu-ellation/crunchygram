@@ -3,8 +3,8 @@ import React from "react";
 const SearchSVG = () => {
   return (
     <svg
-      width="24px"
-      height="24px"
+      width="22px"
+      height="22px"
       xmlns="http://www.w3.org/1999/xhtml"
       viewBox="0 0 24 24"
       role="img"

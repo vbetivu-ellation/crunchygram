@@ -2,22 +2,23 @@
     background: none;
     border: none;
     outline: none;
-    padding: 0 2px 2px;
+    padding: 4px 4px;
     font-size: 14px;
     line-height: 18px;
-    color: rgb(255, 255, 255);
-    border-bottom: 1px solid var(--color-silver-chalice);
+    color: rgb(36, 36, 36);
+    border-bottom: 1px solid gray;
     margin-top: -4px;
     margin-bottom: 0px;
-};
+    flex: 1;
+    height: 24px;
+}
 .divstyle{
     padding: 20px;
     outline: #eb8034;
     display: flex;
     align-items: center;
-    justify-content: center;
     width: 200px;
 }
 .inputstyle:focus{
-    color:#eb8034;
+    border-bottom: 1px solid #eb8034;
 }
