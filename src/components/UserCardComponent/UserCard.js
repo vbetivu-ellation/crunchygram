@@ -6,10 +6,10 @@ import Styles from "./UserCard.module.css";
 const UserCard = ({ username, avatar }) => {
   return (
     <div className={Styles.UserCard}>
+      <Avatar src={avatar} alt={avatar} className={Styles.Avatar} />
       <Text as="span" size="m">
         {username}
       </Text>
-      <Avatar src={avatar} alt={avatar} className={Styles.Avatar} />
     </div>
   );
 };

@@ -1,0 +1,9 @@
+.availableusers {
+  width: 230px;
+  height: 270px;
+  background-color: white;
+  padding: 20px 16px 0;
+  border-radius: 4px;
+  border: 1px solid rgb(71, 70, 70);
+  margin: 20px;
+}
