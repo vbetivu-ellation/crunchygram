@@ -1,3 +1,3 @@
-import Image from "./Components/Image";
+import Image from "./Image";
 
 export default Image;
