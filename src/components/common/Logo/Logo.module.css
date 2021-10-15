@@ -1,0 +1,18 @@
+.large{
+    height: 36px;
+    display: none;
+  }
+  .small{
+    height: 36px;
+    display: block;
+  }
+  
+  @media (min-width: 578px) {
+    .small {
+      display: none;
+    }
+  
+    .large {
+      display: block;
+    }
+  }
