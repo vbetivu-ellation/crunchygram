@@ -9,7 +9,7 @@ const Searchbutton = ({className}) => (
 
         <SearchSVG/>
         </button>
-    )
+)
 Searchbutton.propTypes = {
     className: propTypes.string,
 
