@@ -2,7 +2,7 @@ import { FilledLikeSvg, Avatar, CommentSvg, Text } from "../common";
 import styles from "./ProfileHeader.module.css";
 import PropTypes from "prop-types";
 
-const ProfileHeader = ({username, avatar, likescount, commentscount}) => (
+const ProfileHeader = ({username, avatar, likesCount, commentsCount}) => (
   <div className={styles.ProfileHeader}>
     <div className = {styles.Avatar}>
       <Avatar
@@ -19,14 +19,14 @@ const ProfileHeader = ({username, avatar, likescount, commentscount}) => (
       <div className={styles.FilledLike}>
         <FilledLikeSvg /> {" "}
         <Text as="span" size="l">
-          <span>{likescount}</span> {" "}
+          <span>{likesCount}</span> {" "}
           likes
         </Text> 
       </div>
       <div className={styles.Comment}>
         <CommentSvg /> {" "}
         <Text as="span" size="l">
-          <span>{commentscount}</span> {" "}
+          <span>{commentsCount}</span> {" "}
           comments
         </Text>
       </div>
@@ -37,8 +37,8 @@ const ProfileHeader = ({username, avatar, likescount, commentscount}) => (
 ProfileHeader.propTypes = {
     username: PropTypes.string.isRequired,
     avatar: PropTypes.string.isRequired,
-    likescount: PropTypes.number.isRequired,
-    commentscount: PropTypes.number.isRequired,
+    likesCount: PropTypes.number.isRequired,
+    commentsCount: PropTypes.number.isRequired,
   };
 
 export default ProfileHeader;

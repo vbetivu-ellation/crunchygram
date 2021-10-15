@@ -17,8 +17,7 @@
 }
 
 .Text {
-  text-align: center;
-  align-self: stretch;
+  margin-bottom: 25px;
 }
 
 .Center {
@@ -28,11 +27,13 @@
 }
 
 .FilledLike {
-  text-align: center;
+  display: flex;
+  align-items: center;
 }
 
 .Comment {
-  text-align: center;
+  display: flex;
+  align-items: center;
 }
 
 .Comment svg {
@@ -47,8 +48,7 @@
     flex-direction: row;
   }
   .Avatar {
-    margin-left: 0%;
-    margin-right: 0%;
+    margin: 0 32px 0 0;
   }
   .Text {
     text-align: unset;
@@ -56,9 +56,9 @@
     margin-right: 8px;
   }
   .Center {
-    flex-direction: row;
+    align-items: start;
   }
   .FilledLike {
-    margin-right: 10px;
+    margin-bottom: 12px;
   }
 }
