@@ -1,0 +1,24 @@
+.inputstyle{
+    background: none;
+    border: none;
+    outline: none;
+    padding: 4px 4px;
+    font-size: 14px;
+    line-height: 18px;
+    color: rgb(36, 36, 36);
+    border-bottom: 1px solid gray;
+    margin-top: -4px;
+    margin-bottom: 0px;
+    flex: 1;
+    height: 24px;
+}
+.divstyle{
+    padding: 20px;
+    outline: #eb8034;
+    display: flex;
+    align-items: center;
+    width: 200px;
+}
+.inputstyle:focus{
+    border-bottom: 1px solid #eb8034;
+}

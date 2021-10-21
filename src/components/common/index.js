@@ -16,7 +16,7 @@ import Button from "./Button";
 
 import EmptyPosts from "./EmptyPosts";
 import Searchbutton from "../Searchbutton";
-
+import Search from "../Search"
 export {
   Text,
   LikeSvg,
@@ -32,4 +32,5 @@ export {
   SpinnerSvg,
   EmptyPosts,
   Input,
+  Search,
 };
